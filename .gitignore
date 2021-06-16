@@ -1,0 +1,3 @@
+# Evitar procesar los directorios de las dependencias
+/node_modules
+/resources

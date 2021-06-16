@@ -1,0 +1,255 @@
+@import "variables";
+
+@font-face {
+	font-family: "DIN Next LT Pro Regular";
+	src: url("../resources/fonts/DINNextLTPro-Regular.ttf");
+}
+@font-face {
+	font-family: "DIN Next LT Pro Medium";
+	src: url("../resources/fonts/DINNextLTPro-Medium.ttf");
+}
+
+/*---------- RESET DE CSS ----------*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*---------- TERMINA RESET DE CSS ----------*/
+.nav{
+	width: 100%;
+	height: 100px;
+	background-color: $colorWhite;
+	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+	position: fixed;
+	top: 0;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: 100px;
+	column-gap: 30px;
+	grid-template-areas: "logo logo logo logo nav nav nav nav nav nav nav nav";
+	align-items: center;
+	justify-content: end;
+	z-index: 1;
+
+	&__logoContainer{
+		width: 100%;
+		height: 60px;
+		grid-area: logo;
+		grid-column-start: 2;
+	}
+
+	&__logo{
+		width: 204px;
+		height: 60px;
+	}
+
+	&__menuDesktop{
+		width: 100%;
+		margin: 0;
+		grid-column-start: 6;
+		grid-column-end: 12;
+		ul{
+			height: 16px;
+			display: flex;
+            justify-content: space-between;
+            align-items: center;
+		}
+		li{
+			height: 16px;
+            list-style: none;
+			text-transform: uppercase;
+		}
+		a{
+			font-family: 'Poppins', sans-serif;
+			font-size: 16px;
+			line-height: 16px;
+			text-decoration: none;
+			font-weight: 600;
+			color: $colorBlackDark;
+		}
+	}
+}
+
+.main{
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: auto auto auto 450px auto auto;
+	column-gap: 30px;
+	column-width: 65px;
+	margin-top: 100px;
+	grid-template-areas: 
+						"banner banner banner banner banner banner banner banner banner banner banner banner"
+						"marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas"
+						"destacados destacados destacados destacados destacados destacados destacados destacados destacados destacados destacados destacados"
+						"promo promo promo promo promo promo promo promo promo promo promo promo"
+						"servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios"
+						"footer footer footer footer footer footer footer footer footer footer footer footer";
+}
+
+.banner{
+	width: 100%;
+	max-height: 300px;
+	grid-area: banner;
+	img{
+		width: 100%;
+	}
+}
+
+.titulo{
+	font-family: 'DIN Next LT Pro Medium', sans-serif;
+	font-size: 24px;
+	line-height: 24px;
+	height: 29px;
+	border-left: 4px solid $colorBlackDark;
+	padding-top: 5px;
+	padding-left: 15px;
+	text-transform: uppercase;
+}
+
+.marcas{
+	margin-top: 60px;
+	grid-area: marcas;
+	grid-column-start: 2;
+	grid-column-end: 12;
+	
+	&__logos{
+		margin-top: 30px;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+		img{
+			max-height: 120px;
+		}
+	}
+}
+
+.destacados{
+	margin-top: 60px;
+	grid-area: destacados;
+	grid-column-start: 2;
+	grid-column-end: 12;
+
+	&__header{
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__imagenProducto{
+		width: 100%;
+		height: 350px;
+		max-width: 350px;
+		object-fit: cover;
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+}
+
+.verMas{
+	font-family: 'DIN Next LT Pro Medium', sans-serif;
+	font-size: 14px;
+	letter-spacing: 1.25px;
+	height: 36px;
+	min-width: 64px;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: $colorBlackDark;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	i{
+		margin-right: 8px;
+		margin-bottom: 2px;
+		font-size: 14px;
+	}
+}
+
+.bannerPromo{
+	grid-area: promo;
+	position: relative;
+	&__container{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 100px;
+		left: 10%;
+	}
+	&__texto{
+		font-family: 'DIN Next LT Pro Medium', sans-serif;
+		color: white;
+		font-size: 72px;
+		text-align: center;
+	}
+	img{	
+		width: 100%;
+		height: 450px;
+		object-fit: cover;
+	}
+	button{
+		margin-top: 50px;
+		height: 60px;
+		width: 250px;
+		background-color: $colorWhite;
+		color: $colorBlackDark;
+		font-family: 'DIN Next LT Pro Medium', sans-serif;
+		font-size: 14px;
+		line-height: 14px;
+		letter-spacing: 1.25px;
+		text-transform: uppercase;
+		border-radius: 4px;
+		&:hover{
+			background-color: $colorGrayLight;
+		}
+	}
+}
