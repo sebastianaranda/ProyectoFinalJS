@@ -210,3 +210,96 @@ table {
     border-radius: 4px; }
     .bannerPromo button:hover {
       background-color: #D2D2D2; }
+
+.servicios {
+  grid-area: servicios;
+  height: 268px;
+  display: flex;
+  align-items: center; }
+  .servicios__container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    column-gap: 30px;
+    column-width: 65px;
+    grid-template-areas: " emptyLeft servicioLeft servicioLeft servicioLeft servicioLeft servicioMid servicioMid servicioMid servicioMid servicioRight servicioRight servicioRight servicioRight emptyRight"; }
+  .servicios__left, .servicios__mid, .servicios__right {
+    grid-area: servicioLeft;
+    height: 168px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F5F5;
+    border-radius: 6px; }
+  .servicios__mid {
+    grid-area: servicioMid; }
+  .servicios__right {
+    grid-area: servicioRight; }
+  .servicios img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 30px; }
+  .servicios p {
+    font-family: 'DIN Next LT Pro Regular', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-align: center; }
+
+.footer {
+  grid-area: footer;
+  height: 220px;
+  margin: 0 6%; }
+  .footer__separator {
+    color: #000000;
+    margin: 0; }
+  .footer__container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center; }
+  .footer__menu {
+    width: 135px;
+    height: 220px; }
+    .footer__menu ul {
+      height: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: flex-start;
+      font-family: 'Poppins', sans-serif; }
+      .footer__menu ul li {
+        height: 12px;
+        list-style: none;
+        text-transform: uppercase;
+        margin-top: 20px; }
+        .footer__menu ul li.title {
+          height: 48px;
+          margin: 0;
+          font-size: 14px;
+          line-height: 48px;
+          font-weight: 600; }
+        .footer__menu ul li a {
+          font-size: 12px;
+          line-height: 12px;
+          text-decoration: none;
+          font-weight: 300;
+          color: #000000; }
+          .footer__menu ul li a:hover {
+            font-weight: 500; }
+  .footer__logo {
+    width: 200px;
+    height: 59px; }
+  .footer__socialMedia {
+    width: 132px;
+    height: 24px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center; }
+    .footer__socialMedia .icono {
+      font-size: 24px;
+      color: #000000; }
+      .footer__socialMedia .icono:hover {
+        color: #8A8A8A; }
