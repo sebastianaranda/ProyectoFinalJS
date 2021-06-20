@@ -115,7 +115,9 @@ table {
   max-height: 300px;
   grid-area: banner; }
   .banner img {
-    width: 100%; }
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover; }
 
 .titulo {
   font-family: 'DIN Next LT Pro Medium', sans-serif;
@@ -140,6 +142,10 @@ table {
     align-items: center; }
     .marcas__logos img {
       max-height: 120px; }
+  .marcas__alerta {
+    margin-bottom: 50px; }
+    .marcas__alerta-hidden {
+      display: none !important; }
 
 .destacados {
   margin-top: 60px;
@@ -151,6 +157,8 @@ table {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center; }
+  .destacados .col {
+    text-align: center; }
   .destacados__imagenProducto {
     width: 100%;
     height: 350px;

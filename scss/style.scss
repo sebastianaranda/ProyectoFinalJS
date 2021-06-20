@@ -139,6 +139,8 @@ table {
 	grid-area: banner;
 	img{
 		width: 100%;
+		max-height: 300px;
+		object-fit: cover;
 	}
 }
 
@@ -169,6 +171,12 @@ table {
 			max-height: 120px;
 		}
 	}
+	&__alerta{
+		margin-bottom: 50px;
+		&-hidden{
+			display: none !important;
+		}
+	}
 }
 
 .destacados{
@@ -182,6 +190,10 @@ table {
 		flex-flow: row nowrap;
 		justify-content: space-between;
 		align-items: center;
+	}
+
+	.col{
+		text-align: center;
 	}
 
 	&__imagenProducto{

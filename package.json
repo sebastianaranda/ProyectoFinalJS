@@ -1,5 +1,5 @@
 {
-  "name": "proyectofinal",
+  "name": "proyectofinaljs",
   "version": "1.0.0",
   "description": "Proyecto Final Javascript Coderhouse",
   "main": "index.js",
@@ -13,5 +13,13 @@
   "devDependencies": {
     "node-sass": "^6.0.0",
     "nodemon": "^2.0.7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebastianaranda/ProyectoFinalJS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sebastianaranda/ProyectoFinalJS/issues"
+  },
+  "homepage": "https://github.com/sebastianaranda/ProyectoFinalJS#readme"
 }

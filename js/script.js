@@ -1,3 +1,39 @@
+/* Identifico elementos */
+const marcas = document.querySelector(".marcas");
+const marcasTitulo = document.querySelector(".titulo");
+/* Creo nuevo elementos */
+const alerta = document.createElement("div");
+alerta.classList.add("alert", "marcas__alerta", "marcas__alerta-hidden");
+
+function alertaSuccess(){
+    alerta.classList.add("alert-success");
+    alerta.classList.remove("alert-danger","alert-primary","alert-warning","marcas__alerta-hidden");
+    /* Agrego elemento nuevo al html */
+    marcas.insertBefore(alerta,marcasTitulo);
+}
+
+function alertaNoStock(){
+    alerta.classList.add("alert-danger");
+    alerta.classList.remove("alert-success","alert-primary","alert-warning","marcas__alerta-hidden");
+    /* Agrego elemento nuevo al html */
+    marcas.insertBefore(alerta,marcasTitulo);
+}
+
+function alertaProductoAgregado(){
+    alerta.classList.add("alert-primary");
+    alerta.classList.remove("alert-success","alert-danger","alert-warning","marcas__alerta-hidden");
+    /* Agrego elemento nuevo al html */
+    marcas.insertBefore(alerta,marcasTitulo);
+}
+
+function alertaCarritoVacio(texto){
+    alerta.textContent = texto;
+    alerta.classList.add("alert-warning");
+    alerta.classList.remove("alert-success", "alert-danger", "alert-primary", "marcas__alerta-hidden");
+    /* Agrego elemento nuevo al html */
+    marcas.insertBefore(alerta,marcasTitulo);
+}
+
 let seleccionDeMenu;
 const carrito = [];
 
@@ -61,8 +97,12 @@ function venderProducto(producto) {
         cargarCarrito(cant, producto);
         console.log(`Valor de carrito actualizado $${totalCarrito()}`);
         console.table(carrito);
-        alert(`Se agregaron ${cant} unidades de ${producto.nombre} al carrito, por un valor de: $${producto.precio * cant}. `);
+        alerta.textContent = `Se agregaron ${cant} unidades de ${producto.nombre} al carrito, por un valor de: $${producto.precio * cant}.`;
+        alertaProductoAgregado();
+        alert(`Se agregaron ${cant} unidades de ${producto.nombre} al carrito, por un valor de: $${producto.precio * cant}.`);
     } else {
+        alerta.textContent = `Lamentablemente no hay suficiente stock.\n\n${producto.nombre} en stock: ${producto.stock}.`;
+        alertaNoStock();
         alert(`Lamentablemente no hay suficiente stock.\n\n${producto.nombre} en stock: ${producto.stock}.`);
     }
 }
@@ -82,11 +122,14 @@ function checkout() {
             if (opcionCheckout == 1) {
                 console.log("El usuario compro los siguientes productos:")
                 console.table(carrito);
+                alerta.textContent = `Los $${totalDeCompra} ya fueron debitados de su cuenta.\n\n¡Muchas gracias por su compra!`;
+                alertaSuccess();
                 alert(`Los $${totalDeCompra} ya fueron debitados de su cuenta.\n\n¡Muchas gracias por su compra!`);
                 vaciarCarrito(carrito);
             }
         }
     } else {
+        alertaCarritoVacio(`Su carrito se encuentra vacío, agregue productos para continuar.`);
         alert(`Su carrito se encuentra vacío, agregue productos para continuar.`);
     }
 }
