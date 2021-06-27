@@ -72,7 +72,7 @@ table {
 	grid-template-columns: repeat(12, 1fr);
 	grid-template-rows: 100px;
 	column-gap: 30px;
-	grid-template-areas: "logo logo logo logo nav nav nav nav nav nav nav nav";
+	grid-template-areas: "logo logo logo logo nav nav nav nav nav nav cart cart";
 	align-items: center;
 	justify-content: end;
 	z-index: 1;
@@ -92,8 +92,7 @@ table {
 	&__menuDesktop{
 		width: 100%;
 		margin: 0;
-		grid-column-start: 6;
-		grid-column-end: 12;
+		grid-area: nav;
 		ul{
 			height: 16px;
 			display: flex;
@@ -112,6 +111,33 @@ table {
 			text-decoration: none;
 			font-weight: 600;
 			color: $colorBlackDark;
+		}
+	}
+	&__cart{
+		grid-area: cart;
+		grid-column-end: 12;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		padding: 0px 12px;
+		height: 31px;
+		width: min-content;
+		border-radius: 6px;
+		background-color: $colorBlackDark;
+		color: $colorWhite;
+		p{
+			font-family: 'Poppins', sans-serif;
+			font-size: 16px;
+			line-height: 16px;
+			font-weight: 600;
+			margin-right: 12px;
+		}
+		i{
+			font-size: 16px;
+		}
+		&:hover{
+			background-color: $colorBlackLight;
 		}
 	}
 }
