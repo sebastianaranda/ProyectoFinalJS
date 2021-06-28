@@ -107,7 +107,7 @@ table {
     align-items: center;
     padding: 0px 12px;
     height: 31px;
-    width: min-content;
+    width: max-content;
     border-radius: 6px;
     background-color: #000000;
     color: #FFFFFF; }
@@ -120,7 +120,8 @@ table {
     .nav__cart i {
       font-size: 16px; }
     .nav__cart:hover {
-      background-color: #333333; }
+      background-color: #333333;
+      cursor: pointer; }
 
 .main {
   width: 100%;
@@ -181,13 +182,40 @@ table {
     align-items: center; }
   .destacados .col {
     text-align: center; }
-  .destacados__imagenProducto {
+
+.producto {
+  margin-top: 15px;
+  margin-bottom: 15px; }
+  .producto a {
+    display: inline-block;
+    max-width: 350px;
+    height: calc(100px -1px);
+    margin: 0; }
+  .producto__imagenProducto {
     width: 100%;
-    height: 350px;
     max-width: 350px;
     object-fit: cover;
-    margin-top: 15px;
-    margin-bottom: 15px; }
+    vertical-align: middle;
+    margin: 0; }
+  .producto__detalle {
+    background-color: #F5F5F5;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin: 0;
+    font-family: 'DIN Next LT Pro Medium', sans-serif;
+    letter-spacing: 1.25px; }
+  .producto__nombre {
+    width: 70%;
+    line-height: 16px;
+    font-size: 16px;
+    text-align: start; }
+  .producto__precio {
+    width: 30%;
+    font-size: 18px;
+    text-align: right; }
 
 .verMas {
   font-family: 'DIN Next LT Pro Medium', sans-serif;

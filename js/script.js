@@ -1,37 +1,40 @@
 /* Identifico elementos */
 const marcas = document.querySelector(".marcas");
 const marcasTitulo = document.querySelector(".titulo");
+const botonCarrito = document.querySelector(".nav__cart");
+const precioCarrito = document.querySelector(".nav__cart__precio");
+
 /* Creo nuevo elementos */
 const alerta = document.createElement("div");
 alerta.classList.add("alert", "marcas__alerta", "marcas__alerta-hidden");
 
-function alertaSuccess(){
+function alertaSuccess() {
     alerta.classList.add("alert-success");
-    alerta.classList.remove("alert-danger","alert-primary","alert-warning","marcas__alerta-hidden");
+    alerta.classList.remove("alert-danger", "alert-primary", "alert-warning", "marcas__alerta-hidden");
     /* Agrego elemento nuevo al html */
-    marcas.insertBefore(alerta,marcasTitulo);
+    marcas.insertBefore(alerta, marcasTitulo);
 }
 
-function alertaNoStock(){
+function alertaNoStock() {
     alerta.classList.add("alert-danger");
-    alerta.classList.remove("alert-success","alert-primary","alert-warning","marcas__alerta-hidden");
+    alerta.classList.remove("alert-success", "alert-primary", "alert-warning", "marcas__alerta-hidden");
     /* Agrego elemento nuevo al html */
-    marcas.insertBefore(alerta,marcasTitulo);
+    marcas.insertBefore(alerta, marcasTitulo);
 }
 
-function alertaProductoAgregado(){
+function alertaProductoAgregado() {
     alerta.classList.add("alert-primary");
-    alerta.classList.remove("alert-success","alert-danger","alert-warning","marcas__alerta-hidden");
+    alerta.classList.remove("alert-success", "alert-danger", "alert-warning", "marcas__alerta-hidden");
     /* Agrego elemento nuevo al html */
-    marcas.insertBefore(alerta,marcasTitulo);
+    marcas.insertBefore(alerta, marcasTitulo);
 }
 
-function alertaCarritoVacio(texto){
+function alertaCarritoVacio(texto) {
     alerta.textContent = texto;
     alerta.classList.add("alert-warning");
     alerta.classList.remove("alert-success", "alert-danger", "alert-primary", "marcas__alerta-hidden");
     /* Agrego elemento nuevo al html */
-    marcas.insertBefore(alerta,marcasTitulo);
+    marcas.insertBefore(alerta, marcasTitulo);
 }
 
 let seleccionDeMenu;
@@ -99,11 +102,12 @@ function venderProducto(producto) {
         console.table(carrito);
         alerta.textContent = `Se agregaron ${cant} unidades de ${producto.nombre} al carrito, por un valor de: $${producto.precio * cant}.`;
         alertaProductoAgregado();
-        alert(`Se agregaron ${cant} unidades de ${producto.nombre} al carrito, por un valor de: $${producto.precio * cant}.`);
+        //alert(`Se agregaron ${cant} unidades de ${producto.nombre} al carrito, por un valor de: $${producto.precio * cant}.`);
+        precioCarrito.textContent = `$ ${totalCarrito()}`;
     } else {
         alerta.textContent = `Lamentablemente no hay suficiente stock.\n\n${producto.nombre} en stock: ${producto.stock}.`;
         alertaNoStock();
-        alert(`Lamentablemente no hay suficiente stock.\n\n${producto.nombre} en stock: ${producto.stock}.`);
+        //alert(`Lamentablemente no hay suficiente stock.\n\n${producto.nombre} en stock: ${producto.stock}.`);
     }
 }
 
@@ -111,6 +115,7 @@ function vaciarCarrito(carrito) {
     while (carrito.length) {
         carrito.pop();
     }
+    precioCarrito.textContent = "$ 0";
 }
 
 function checkout() {
@@ -124,13 +129,13 @@ function checkout() {
                 console.table(carrito);
                 alerta.textContent = `Los $${totalDeCompra} ya fueron debitados de su cuenta.\n\n¡Muchas gracias por su compra!`;
                 alertaSuccess();
-                alert(`Los $${totalDeCompra} ya fueron debitados de su cuenta.\n\n¡Muchas gracias por su compra!`);
+                //alert(`Los $${totalDeCompra} ya fueron debitados de su cuenta.\n\n¡Muchas gracias por su compra!`);
                 vaciarCarrito(carrito);
             }
         }
     } else {
         alertaCarritoVacio(`Su carrito se encuentra vacío, agregue productos para continuar.`);
-        alert(`Su carrito se encuentra vacío, agregue productos para continuar.`);
+        //alert(`Su carrito se encuentra vacío, agregue productos para continuar.`);
     }
 }
 
@@ -138,7 +143,8 @@ const remeraEstampada = new Producto("Remera Estampada", 750, 6);
 const figuraColeccionable = new Producto("Figura Coleccionable", 1500, 4);
 
 
-while (seleccionDeMenu != 0) {
+botonCarrito.addEventListener("click", menuCompra);
+
+/* while (seleccionDeMenu != 0) {
     menuCompra();
-}
-alert("Gracias por su visita, ¡vuelva pronto!");
+} */
