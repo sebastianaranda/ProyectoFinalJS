@@ -58,18 +58,18 @@ function agregarProducto(e) {
 function obtenerDatosProducto(cardProducto) {
     const productoAgregado = new Producto(
         cardProducto.querySelector(".producto__nombre").textContent,
-        cardProducto.querySelector(".producto__precio").textContent.slice(1),
-        cardProducto.querySelector(".producto__precio").textContent.slice(1),
+        Number(cardProducto.querySelector(".producto__precio").textContent.slice(1)),
+        Number(cardProducto.querySelector(".producto__precio").textContent.slice(1)),
         cardProducto.querySelector('a').getAttribute('data-id'),
         cardProducto.querySelector(".producto__imagenProducto").src,
-        1);
+        Number(1));
 
     const existe = carrito.some(producto => producto.id === productoAgregado.id);
 
     if (existe) {
         const productos = carrito.map(producto => {
             if (producto.id === productoAgregado.id) {
-                producto.cantidad++;
+                producto.cantidad = Number(producto.cantidad + 1);
                 producto.precio = `${Number(productoAgregado.precio) * Number(producto.cantidad)}`;
             }
             return producto;
@@ -106,6 +106,7 @@ function insertarCarritoHTML() {
             </td>`;
         tableCarrito.appendChild(row);
     });
+    console.table(carrito);
     guardarCarritoStorage();
 }
 

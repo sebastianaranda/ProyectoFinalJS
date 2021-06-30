@@ -79,8 +79,8 @@ table {
     width: 204px;
     height: 60px; }
   .nav__menuDesktop {
-    width: 100%;
-    margin: 0;
+    width: 80%;
+    margin: auto;
     grid-area: nav; }
     .nav__menuDesktop ul {
       height: 16px;
@@ -103,6 +103,8 @@ table {
     grid-column-end: 12; }
     .nav__carrito li {
       position: relative; }
+    .nav__carrito:hover .nav__submenu {
+      display: block; }
   .nav__cart {
     display: flex;
     flex-direction: row;
@@ -126,13 +128,16 @@ table {
       background-color: #333333;
       cursor: pointer; }
   .nav__submenu {
-    display: block;
+    display: none;
     position: absolute;
     right: 0;
-    top: 65px;
+    top: 100%;
     z-index: 1;
     background-color: #FFFFFF;
-    padding: 20px 15px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
     min-width: 350px; }
     .nav__submenu__title {
       font-family: 'DIN Next LT Pro Medium', sans-serif;
@@ -257,12 +262,10 @@ table {
   margin-bottom: 15px; }
   .producto a {
     display: inline-block;
-    max-width: 350px;
-    height: calc(100px -1px);
-    margin: 0; }
+    margin: 0;
+    width: 80%; }
   .producto__imagenProducto {
     width: 100%;
-    max-width: 350px;
     object-fit: cover;
     vertical-align: middle;
     margin: 0; }
@@ -275,7 +278,9 @@ table {
     padding: 12px;
     margin: 0;
     font-family: 'DIN Next LT Pro Medium', sans-serif;
-    letter-spacing: 1.25px; }
+    letter-spacing: 1.25px;
+    width: 80%;
+    margin: auto; }
   .producto__nombre {
     width: 70%;
     line-height: 16px;

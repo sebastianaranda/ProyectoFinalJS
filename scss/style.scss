@@ -90,8 +90,8 @@ table {
 	}
 
 	&__menuDesktop{
-		width: 100%;
-		margin: 0;
+		width: 80%;
+		margin: auto;
 		grid-area: nav;
 		ul{
 			height: 16px;
@@ -118,6 +118,9 @@ table {
 		grid-column-end: 12;
 		& li{
 			position: relative;
+		}
+		&:hover .nav__submenu{
+			display: block;
 		}
 	}
 	&__cart{
@@ -147,13 +150,16 @@ table {
 		}
 	}
 	&__submenu{
-		display: block;
+		display: none;
     	position: absolute;
-    	right:0;
-    	top:65px;
+    	right: 0;
+    	top: 100%;
     	z-index: 1;
-    	background-color:$colorWhite;
-		padding: 20px 15px;
+    	background-color: $colorWhite;
+		padding-top: 40px;
+		padding-bottom: 20px;
+		padding-left: 15px;
+		padding-right: 15px;
     	min-width: 350px;
 
 		&__title{
@@ -312,13 +318,11 @@ table {
 
 	a{
 		display: inline-block;
-		max-width: 350px;
-		height: calc(100px -1px);
 		margin: 0;
+		width: 80%;
 	}
 	&__imagenProducto{
 		width: 100%;
-		max-width: 350px;
 		object-fit: cover;
 		vertical-align: middle;
 		margin: 0;
@@ -333,6 +337,8 @@ table {
 		margin: 0;
 		font-family: 'DIN Next LT Pro Medium', sans-serif;
 		letter-spacing: 1.25px;
+		width: 80%;
+		margin: auto;
 	}
 	&__nombre{
 		width: 70%;
