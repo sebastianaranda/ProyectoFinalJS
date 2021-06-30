@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -41,10 +43,23 @@
             </ul>
         </nav>
 
-        <div class="nav__cart">
-            <p class="nav__cart__precio">$0</p>
-            <i class="fas fa-shopping-cart"></i>
-        </div>
+        <ul class="nav__carrito">
+            <li>
+                <div class="nav__cart">
+                    <p class="nav__cart__precio">$0</p>
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="nav__submenu">
+                    <p class="nav__submenu__title">Tu pedido</p>
+                    <table class="lista__carrito">
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <button class="btn comprar__carrito">Comprar Carrito</button>
+                </div>
+            </li>
+        </ul>
+
     </header>
 
     <div class="main">
