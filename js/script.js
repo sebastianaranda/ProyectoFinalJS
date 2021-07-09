@@ -11,47 +11,69 @@ class Producto {
     }
 }
 /* Selectores */
-const marcas = document.querySelector(".marcas");
-const marcasTitulo = document.querySelector(".titulo");
+const nav = document.querySelector(".nav");
 const listaProductos = document.querySelector("#lista-productos");
 const precioCarrito = document.querySelector(".nav__cart__precio");
 const tablaCarrito = document.querySelector(".lista__carrito tbody");
 
 /* Creo alertas */
 const alerta = document.createElement("div");
-alerta.classList.add("alert", "alert-dismissible", "fade", "show", "marcas__alerta", "marcas__alerta-hidden");
+alerta.classList.add("alert", "alert-dismissible", "fade", "show", "alerta");
 
 function alertaProductoAgregado(texto) {
     alerta.textContent = texto;
+    /* Modifico propiedades del elemento y lo agrego al html */
     alerta.classList.add("alert-success");
-    alerta.classList.remove("alert-danger", "alert-primary", "alert-warning", "marcas__alerta-hidden");
-    /* Agrego elemento nuevo al html */
-    marcas.insertBefore(alerta, marcasTitulo);
+    alerta.classList.remove("alert-danger", "alert-primary", "alert-warning", "alerta-hidden");
     alerta.style.display = "block";
-    setTimeout(function () {
-        alerta.style.display = "none";
-    }, 5000); // <-- time in milliseconds
+    nav.appendChild(alerta);
+    /* Muestro alerta y la oculto automaticamente con animacion */
+    $(".alert-success").animate({
+        opacity: 1
+    }, 350, function () {
+        setTimeout(function () {
+            $(".alert-success").animate({
+                opacity: 0
+            }, 350)
+        }, 3000)
+    });
 }
 function alertaProductoEliminado(texto) {
     alerta.textContent = texto;
+    /* Modifico propiedades del elemento y lo agrego al html */
     alerta.classList.add("alert-danger");
-    alerta.classList.remove("alert-success", "alert-primary", "alert-warning", "marcas__alerta-hidden");
-    /* Agrego elemento nuevo al html */
-    marcas.insertBefore(alerta, marcasTitulo);
+    alerta.classList.remove("alert-success", "alert-primary", "alert-warning", "alerta-hidden");
     alerta.style.display = "block";
-    setTimeout(function () {
-        alerta.style.display = "none";
-    }, 5000); // <-- time in milliseconds
+    nav.appendChild(alerta);
+    /* Muestro alerta y la oculto automaticamente con animacion */
+    $(".alert-danger").animate({
+        opacity: 1
+    }, 350, function () {
+        setTimeout(function () {
+            $(".alert-danger").animate({
+                opacity: 0
+            }, 350)
+        }, 3000)
+    });
 }
 
 /* Listeners */
 listaProductos.addEventListener("click", agregarProducto);
 tablaCarrito.addEventListener("click", borrarProducto);
-document.addEventListener("DOMContentLoaded", () => {
+
+/* ---------- JQuery para el Storage----------*/
+$(document).ready(() => {
     if (JSON.parse(localStorage.getItem("carrito"))) {
         carrito = JSON.parse(localStorage.getItem("carrito"));
         insertarCarritoHTML();
     }
+});
+
+/* ---------- JQuery para subMenu de Carrito----------*/
+$(".nav__carrito").hover(() => {
+    $(".nav__submenu").slideDown();
+}, () => {
+    $(".nav__submenu").slideUp();
 });
 
 function borrarProducto(e) {

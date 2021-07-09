@@ -100,11 +100,12 @@ table {
       color: #000000; }
   .nav__carrito {
     grid-area: cart;
-    grid-column-end: 12; }
+    grid-column-end: 12;
+    /* &:hover .nav__submenu{
+			display: block;
+		} */ }
     .nav__carrito li {
       position: relative; }
-    .nav__carrito:hover .nav__submenu {
-      display: block; }
   .nav__cart {
     display: flex;
     flex-direction: row;
@@ -132,7 +133,7 @@ table {
     position: absolute;
     right: 0;
     top: 100%;
-    z-index: 1;
+    z-index: 2;
     background-color: #FFFFFF;
     padding-top: 40px;
     padding-bottom: 20px;
@@ -239,10 +240,19 @@ table {
     align-items: center; }
     .marcas__logos img {
       max-height: 120px; }
-  .marcas__alerta {
-    margin-bottom: 50px; }
-    .marcas__alerta-hidden {
-      display: none !important; }
+
+.alerta {
+  width: 70%;
+  display: none;
+  opacity: 0;
+  position: absolute;
+  margin: 0;
+  top: 100%;
+  left: 50%;
+  margin-left: -35%;
+  z-index: 1; }
+  .alerta-hidden {
+    opacity: 0; }
 
 .destacados {
   margin-top: 60px;
@@ -285,11 +295,25 @@ table {
     width: 70%;
     line-height: 16px;
     font-size: 16px;
-    text-align: start; }
+    text-align: start;
+    overflow: hidden;
+    text-overflow: ellipsis; }
   .producto__precio {
     width: 30%;
     font-size: 18px;
     text-align: right; }
+
+.boton_agregar__carrito {
+  font-family: 'DIN Next LT Pro Medium', sans-serif;
+  font-size: 14px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  width: 80%;
+  height: 36px;
+  border: 1px solid #000000;
+  border-radius: 4px; }
+  .boton_agregar__carrito i {
+    margin-right: 8px; }
 
 .verMas {
   font-family: 'DIN Next LT Pro Medium', sans-serif;
