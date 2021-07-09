@@ -1,4 +1,4 @@
-# Primer Entrega - Proyecto Final JS
+# Segunda Entrega - Proyecto Final JS
 
 ## Alumno:
 **Sebastian Aranda**
