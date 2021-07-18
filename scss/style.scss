@@ -362,19 +362,21 @@ table {
 		font-size: 18px;
 		text-align: right;
 	}
-}
-
-.boton_agregar__carrito{
-	font-family: 'DIN Next LT Pro Medium', sans-serif;
-	font-size: 14px;
-	letter-spacing: 1.25px;
-	text-transform: uppercase;
-	width: 80%;
-	height: 36px;
-	border: 1px solid $colorBlackDark;
-	border-radius: 4px;
-	i{
-		margin-right: 8px;
+	&__btn__agregarCarrito{
+		font-family: 'DIN Next LT Pro Medium', sans-serif;
+		font-size: 14px;
+		letter-spacing: 1.25px;
+		text-transform: uppercase;
+		width: 80%;
+		height: 36px;
+		border: 1px solid $colorBlackDark;
+		border-radius: 4px;
+		&:hover{
+			background-color: $colorGrayLight;
+		}
+		i{
+			margin-right: 8px;
+		}
 	}
 }
 

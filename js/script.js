@@ -67,6 +67,10 @@ $(document).ready(() => {
         carrito = JSON.parse(localStorage.getItem("carrito"));
         insertarCarritoHTML();
     }
+
+    //Cargar solo los destacados
+    const productosDestacados = productos.filter(producto => producto.destacado == true);
+    renderizarProductosHTML(productosDestacados);
 });
 
 /* ---------- JQuery para subMenu de Carrito----------*/
@@ -75,6 +79,36 @@ $(".nav__carrito").hover(() => {
 }, () => {
     $(".nav__submenu").slideUp();
 });
+
+
+function renderizarProductosHTML(productos) {
+    listaProductos.innerHTML = "";
+    productos.forEach(producto => {
+        const { imagen, nombre, precio, id } = producto;
+
+        const divCard = document.createElement("div");
+        divCard.classList.add("col");
+        divCard.innerHTML = `
+            <div class="producto">
+                <a href="#" target="_blank" class="agregar__carrito" data-id="${id}">
+                    <img class="producto__imagenProducto" src="${imagen}" alt="">
+                </a>
+                <div class="producto__detalle">
+                    <p class="producto__nombre">${nombre}</p>
+                    <p class="producto__precio">${precio}</p>
+                </div>
+                <div>
+                    <button class="producto__btn__agregarCarrito">
+                        <i class="fas fa-shopping-cart"></i>
+                        Agregar producto
+                    </button>
+                </div>
+            </div>
+        `;
+        listaProductos.appendChild(divCard);
+    });
+}
+
 
 function borrarProducto(e) {
     e.preventDefault();
@@ -97,7 +131,7 @@ function borrarProducto(e) {
 
 function agregarProducto(e) {
     e.preventDefault();
-    if (e.target.classList.contains("producto__imagenProducto")) {
+    if (e.target.classList.contains("producto__btn__agregarCarrito")) {
         const productoSeleccionado = e.target.parentElement.parentElement;
         obtenerDatosProducto(productoSeleccionado);
         alertaProductoAgregado("Producto agregado correctamente.");
@@ -118,7 +152,7 @@ function obtenerDatosProducto(cardProducto) {
         const productos = carrito.map(producto => {
             if (producto.id === productoAgregado.id) {
                 producto.cantidad = producto.cantidad + 1;
-                producto.precio = productoAgregado.precio * producto.cantidad;
+                producto.precio = productoAgregado.precioUnidad * producto.cantidad;
             }
             return producto;
         });

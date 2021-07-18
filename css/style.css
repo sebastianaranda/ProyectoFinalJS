@@ -302,18 +302,19 @@ table {
     width: 30%;
     font-size: 18px;
     text-align: right; }
-
-.boton_agregar__carrito {
-  font-family: 'DIN Next LT Pro Medium', sans-serif;
-  font-size: 14px;
-  letter-spacing: 1.25px;
-  text-transform: uppercase;
-  width: 80%;
-  height: 36px;
-  border: 1px solid #000000;
-  border-radius: 4px; }
-  .boton_agregar__carrito i {
-    margin-right: 8px; }
+  .producto__btn__agregarCarrito {
+    font-family: 'DIN Next LT Pro Medium', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    width: 80%;
+    height: 36px;
+    border: 1px solid #000000;
+    border-radius: 4px; }
+    .producto__btn__agregarCarrito:hover {
+      background-color: #D2D2D2; }
+    .producto__btn__agregarCarrito i {
+      margin-right: 8px; }
 
 .verMas {
   font-family: 'DIN Next LT Pro Medium', sans-serif;
