@@ -105,7 +105,7 @@ table {
 			text-transform: uppercase;
 		}
 		a{
-			font-family: 'Poppins', sans-serif;
+			font-family: $fontPoppins;
 			font-size: 16px;
 			line-height: 16px;
 			text-decoration: none;
@@ -135,7 +135,7 @@ table {
 		background-color: $colorBlackDark;
 		color: $colorWhite;
 		p{
-			font-family: 'Poppins', sans-serif;
+			font-family: $fontPoppins;
 			font-size: 16px;
 			line-height: 16px;
 			font-weight: 600;
@@ -163,7 +163,7 @@ table {
     	min-width: 350px;
 
 		&__title{
-			font-family: 'DIN Next LT Pro Medium', sans-serif;
+			font-family: $fontDINMedium;
 			font-size: 18px;
 			line-height: 14px;
 			letter-spacing: 1.25px;
@@ -186,7 +186,7 @@ table {
 	&__producto{
 		vertical-align: middle;
 		text-align: left;
-		font-family: 'DIN Next LT Pro Medium', sans-serif;
+		font-family: $fontDINMedium;
 		font-size: 14px;
 		padding: 0px 12px;
 	}
@@ -199,7 +199,7 @@ table {
 	&__precio{
 		width: 39px;
 		vertical-align: middle;
-		font-family: 'DIN Next LT Pro Medium', sans-serif;
+		font-family: $fontDINMedium;
 		font-size: 14px;
 		padding: 0px 12px;
 	}
@@ -217,7 +217,7 @@ table {
 	color: $colorBlackDark;
 }
 .comprar__carrito{
-	font-family: 'DIN Next LT Pro Medium', sans-serif;
+	font-family: $fontDINMedium;
 	font-size: 14px;
 	letter-spacing: 1.25px;
 	text-transform: uppercase;
@@ -235,7 +235,7 @@ table {
 	width: 100%;
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
-	grid-template-rows: auto auto auto 450px auto auto;
+	grid-template-rows: auto auto auto auto auto auto;
 	column-gap: 30px;
 	column-width: 65px;
 	margin-top: 100px;
@@ -260,7 +260,7 @@ table {
 }
 
 .titulo{
-	font-family: 'DIN Next LT Pro Medium', sans-serif;
+	font-family: $fontDINMedium;
 	font-size: 24px;
 	line-height: 24px;
 	height: 29px;
@@ -344,7 +344,7 @@ table {
 		align-items: center;
 		padding: 12px;
 		margin: 0;
-		font-family: 'DIN Next LT Pro Medium', sans-serif;
+		font-family: $fontDINMedium;
 		letter-spacing: 1.25px;
 		width: 80%;
 		margin: auto;
@@ -363,7 +363,7 @@ table {
 		text-align: right;
 	}
 	&__btn__agregarCarrito{
-		font-family: 'DIN Next LT Pro Medium', sans-serif;
+		font-family: $fontDINMedium;
 		font-size: 14px;
 		letter-spacing: 1.25px;
 		text-transform: uppercase;
@@ -381,7 +381,7 @@ table {
 }
 
 .verMas{
-	font-family: 'DIN Next LT Pro Medium', sans-serif;
+	font-family: $fontDINMedium;
 	font-size: 14px;
 	letter-spacing: 1.25px;
 	height: 36px;
@@ -412,7 +412,7 @@ table {
 		left: 10%;
 	}
 	&__texto{
-		font-family: 'DIN Next LT Pro Medium', sans-serif;
+		font-family: $fontDINMedium;
 		color: white;
 		font-size: 72px;
 		text-align: center;
@@ -428,7 +428,7 @@ table {
 		width: 250px;
 		background-color: $colorWhite;
 		color: $colorBlackDark;
-		font-family: 'DIN Next LT Pro Medium', sans-serif;
+		font-family: $fontDINMedium;
 		font-size: 14px;
 		line-height: 14px;
 		letter-spacing: 1.25px;
@@ -479,7 +479,7 @@ table {
 		margin-bottom: 30px;
 	}
 	p{
-		font-family: 'DIN Next LT Pro Regular', sans-serif;
+		font-family: $fontDINRegular;
 		font-size: 16px;
 		letter-spacing: 0.5px;
 		text-align: center;
@@ -511,7 +511,7 @@ table {
 			flex-flow: column nowrap;
 			justify-content: center;
 			align-items: flex-start;
-			font-family: 'Poppins', sans-serif;
+			font-family: $fontPoppins;
 			li{
 				height: 12px;
 				list-style: none;

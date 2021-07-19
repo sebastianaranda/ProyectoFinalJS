@@ -1,6 +1,6 @@
 let carrito = [];
 let precioTotal;
-class Producto {
+/* class Producto {
     constructor(nombre, precio, precioUnidad, id, imagen, cantidad) {
         this.nombre = nombre;
         this.precio = Number(precio);
@@ -9,7 +9,7 @@ class Producto {
         this.imagen = imagen;
         this.cantidad = Number(cantidad);
     }
-}
+} */
 /* Selectores */
 const nav = document.querySelector(".nav");
 const listaProductos = document.querySelector("#lista-productos");
@@ -71,6 +71,7 @@ $(document).ready(() => {
     //Cargar solo los destacados
     const productosDestacados = productos.filter(producto => producto.destacado == true);
     renderizarProductosHTML(productosDestacados);
+
 });
 
 /* ---------- JQuery para subMenu de Carrito----------*/

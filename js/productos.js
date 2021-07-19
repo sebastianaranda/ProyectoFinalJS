@@ -44,7 +44,7 @@ const productos = [
         nombre: "Heretics Pro Kit Jersey 2021",
         precio: "$1500",
         destacado: true,
-        categoria: "prokit",
+        categoria: "remera",
         id: 6
     }
 ]
