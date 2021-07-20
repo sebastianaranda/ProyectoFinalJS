@@ -4,16 +4,22 @@ let precioTotal;
 
 /* Selectores */
 const listaProductos = document.querySelector("#lista-productos");
+const botonCarrito = $(".nav__carrito");
+//const estiloBotonCarrito = $(".nav__cart");
+const subMenuCarrito = $(".nav__submenu");
+const filtroCategorias = document.querySelector("#menuCategorias");
 
 /* Listeners */
 //listaProductos.addEventListener("click", agregarProducto);
-
+filtroCategorias.addEventListener("change", filtrarCategorias);
 
 /* ---------- JQuery para subMenu de Carrito----------*/
-$(".nav__carrito").hover(() => {
-    $(".nav__submenu").slideDown();
+botonCarrito.hover(() => {
+    if (carrito.length != 0) {
+        subMenuCarrito.slideDown();
+    }
 }, () => {
-    $(".nav__submenu").slideUp();
+    subMenuCarrito.slideUp();
 });
 
 
@@ -23,7 +29,15 @@ $(document).ready(() => {
         carrito = JSON.parse(localStorage.getItem("carrito"));
         insertarCarritoHTML();
     } */
-
-    //Cargar productos
+    //Cargar todos productos
     renderizarProductosHTML(stockProductos);
 });
+
+function filtrarCategorias(e) {
+    e.preventDefault();
+    const categorias = filtroCategorias.options;
+    //const categoriaSeleccionada = categorias[filtroCategorias.selectedIndex].text;
+    const categoriaSeleccionada = categorias[filtroCategorias.selectedIndex].value;
+    console.log(categoriaSeleccionada);
+    //console.log(categoriaSeleccionada);
+}

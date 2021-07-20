@@ -68,7 +68,13 @@
 
         <section class="destacados">
             <div class="destacados__header">
-                <h2 class="titulo">Todos los productos</h2>
+                <h2 class="titulo">Productos</h2>
+                <select name="menuCategorias" id="menuCategorias" class="form-select">
+                    <option value="todos" selected>Todos los productos</option>
+                    <option value="prokit">Prokit</option>
+                    <option value="lifestyle">Lifestyle</option>
+                    <option value="accessories">Accesorios</option>
+                </select>
             </div>
 
             <div id="lista-productos" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
@@ -138,7 +144,6 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="./js/stockproductos.js"></script>
     <script type="module" defer src="./js/productos.js"></script>
-    <!-- <script src="./js/script.js"></script> -->
 </body>
 
 </html>

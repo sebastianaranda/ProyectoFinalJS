@@ -1,3 +1,4 @@
+/* ---------- Declaro Variables ---------- */
 let carrito = [];
 let precioTotal;
 class Producto {
@@ -10,24 +11,30 @@ class Producto {
         this.cantidad = Number(cantidad);
     }
 }
-/* Selectores */
+/* ---------- Selectores ---------- */
 const nav = document.querySelector(".nav");
 const listaProductos = document.querySelector("#lista-productos");
 const precioCarrito = document.querySelector(".nav__cart__precio");
 const tablaCarrito = document.querySelector(".lista__carrito tbody");
+const botonCarrito = $(".nav__carrito");
+const estiloBotonCarrito = $(".nav__cart");
+const subMenuCarrito = $(".nav__submenu");
 
-/* Creo alertas */
+/* ---------- Listeners ---------- */
+listaProductos.addEventListener("click", agregarProducto);
+tablaCarrito.addEventListener("click", borrarProducto);
+
+/* ---------- Creo alertas ---------- */
 const alerta = document.createElement("div");
 alerta.classList.add("alert", "alert-dismissible", "fade", "show", "alerta");
 
 function alertaProductoAgregado(texto) {
     alerta.textContent = texto;
-    /* Modifico propiedades del elemento y lo agrego al html */
     alerta.classList.add("alert-success");
     alerta.classList.remove("alert-danger", "alert-primary", "alert-warning", "alerta-hidden");
     alerta.style.display = "block";
     nav.appendChild(alerta);
-    /* Muestro alerta y la oculto automaticamente con animacion */
+    //Muestro alerta y la oculto automaticamente con animacion
     $(".alert-success").animate({
         opacity: 1
     }, 350, function () {
@@ -40,12 +47,11 @@ function alertaProductoAgregado(texto) {
 }
 function alertaProductoEliminado(texto) {
     alerta.textContent = texto;
-    /* Modifico propiedades del elemento y lo agrego al html */
     alerta.classList.add("alert-danger");
     alerta.classList.remove("alert-success", "alert-primary", "alert-warning", "alerta-hidden");
     alerta.style.display = "block";
     nav.appendChild(alerta);
-    /* Muestro alerta y la oculto automaticamente con animacion */
+    //Muestro alerta y la oculto automaticamente con animacion
     $(".alert-danger").animate({
         opacity: 1
     }, 350, function () {
@@ -57,36 +63,40 @@ function alertaProductoEliminado(texto) {
     });
 }
 
-/* Listeners */
-listaProductos.addEventListener("click", agregarProducto);
-tablaCarrito.addEventListener("click", borrarProducto);
-
-/* ---------- JQuery para el Storage----------*/
+/* ---------- JQuery para el Storage ---------- */
 $(document).ready(() => {
     if (JSON.parse(localStorage.getItem("carrito"))) {
         carrito = JSON.parse(localStorage.getItem("carrito"));
         insertarCarritoHTML();
     }
-
-    //Cargar solo los destacados
+    checkBotonCarrito();
+    //Muestro solo los productos destacados
     const productosDestacados = stockProductos.filter(stockProductos => stockProductos.destacado == true);
     renderizarProductosHTML(productosDestacados);
-
 });
 
-/* ---------- JQuery para subMenu de Carrito----------*/
-$(".nav__carrito").hover(() => {
-    $(".nav__submenu").slideDown();
+/* ---------- JQuery para subMenu de Carrito ---------- */
+botonCarrito.hover(() => {
+    if (carrito.length != 0) {
+        subMenuCarrito.slideDown();
+    }
 }, () => {
-    $(".nav__submenu").slideUp();
+    subMenuCarrito.slideUp();
 });
 
+/* ---------- Función que habilita o deshabilita el carrito ---------- */
+function checkBotonCarrito() {
+    if (carrito.length == 0) {
+        estiloBotonCarrito.addClass("disabled");
+    } else {
+        estiloBotonCarrito.removeClass("disabled");
+    }
+}
 
 export function renderizarProductosHTML(productos) {
     listaProductos.innerHTML = "";
     productos.forEach(producto => {
         const { imagen, nombre, precio, id } = producto;
-
         const divCard = document.createElement("div");
         divCard.classList.add("col");
         divCard.innerHTML = `
@@ -109,7 +119,6 @@ export function renderizarProductosHTML(productos) {
         listaProductos.appendChild(divCard);
     });
 }
-
 
 function borrarProducto(e) {
     e.preventDefault();
@@ -147,7 +156,6 @@ function obtenerDatosProducto(cardProducto) {
         cardProducto.querySelector('a').getAttribute('data-id'),
         cardProducto.querySelector(".producto__imagenProducto").src,
         1);
-
     const existe = carrito.some(producto => producto.id === productoAgregado.id);
     if (existe) {
         const productos = carrito.map(producto => {
@@ -197,6 +205,7 @@ function insertarCarritoHTML() {
     });
     console.table(carrito);
     guardarCarritoStorage();
+    checkBotonCarrito();
 }
 
 function borrarCarritoHTML() {
