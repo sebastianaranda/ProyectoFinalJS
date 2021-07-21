@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos | EsportHub</title>
+    <title>Checkout | EsportHub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/10772b8d31.js" crossorigin="anonymous"></script>
@@ -24,79 +24,51 @@
                 <img class="nav__logo" src="./resources/logos/logoEH.png" alt="">
             </a>
         </div>
-
-        <nav class="nav__menuDesktop">
-            <ul>
-                <li>
-                    <a href="./index.html">Home</a>
-                </li>
-                <li>
-                    <a href="#">Productos</a>
-                </li>
-                <!-- <li>
-                    <a href="">ProKits</a>
-                </li>
-                <li>
-                    <a href="">Lifestyle</a>
-                </li> -->
-            </ul>
-        </nav>
-
-        <ul class="nav__carrito">
-            <li>
-                <div class="nav__cart">
-                    <p class="nav__cart__precio">$0</p>
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
-                <div class="nav__submenu">
-                    <p class="nav__submenu__title">Tu pedido</p>
-                    <table class="lista__carrito">
-                        <tbody>
-                        </tbody>
-                    </table>
-                    <a class="btn comprar__carrito" href="./checkout.html">Comprar Carrito</a>
-                </div>
-            </li>
-        </ul>
-
     </header>
 
-    <main class="main">
-        <section class="banner">
-            <img src="./resources/banners/banner-top.jpg" alt="">
-        </section>
-
-        <section class="productos">
-            <div class="productos__header">
-                <h2 class="titulo">Productos</h2>
-                <div class="productos__filtro">
-                    <p class="productos__filtro-title">Filtrar:</p>
-                    <select name="menuCategorias" id="menuCategorias" class="form-select">
-                        <option value="todos" selected>Todos los productos</option>
-                        <option value="prokit">Prokit</option>
-                        <option value="lifestyle">Lifestyle</option>
-                        <option value="accesorios">Accesorios</option>
-                    </select>
+    <main class="checkout">
+        <section class="checkout__container">
+            <div class="checkout__container__productos">
+                <a class="btn checkout__volver" href="">Volver a la tienda</a>
+                <div class="checkout__container__productos__title">
+                    <h2 class="titulo">Tu pedido</h2>
+                </div>
+                <div id="lista-productos" class="row row-cols-1">
                 </div>
             </div>
-            <div id="lista-productos" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
-            </div>
-        </section>
-
-        <section class="servicios">
-            <div class="servicios__container">
-                <div class="servicios__left">
-                    <img src="./resources/icons/mdi_shield-alert.svg" alt="">
-                    <p>1 año de garantia en todos<br>los productos.</p>
+            <div class="checkout__container__form">
+                <div class="checkout__container__form__title">
+                    <h2 class="titulo">Tus datos</h2>
                 </div>
-                <div class="servicios__mid">
-                    <img src="./resources/icons/mdi_truck.svg" alt="">
-                    <p>Envío gratis en compras<br>mayores a $3.000.</p>
-                </div>
-                <div class="servicios__right">
-                    <img src="./resources/icons/mdi_chat.svg" alt="">
-                    <p>Soporte técnico las 24 horas,<br>los 7 días de la semana.</p>
-                </div>
+                <form class="row g-3">
+                    <div class="col-lg-12 col-xl-6">
+                        <!-- <label for="inputEmail4" class="form-label">Email</label> -->
+                        <input type="email" class="form-control" id="inputEmail4" placeholder="Nombre">
+                    </div>
+                    <div class="col-lg-12 col-xl-6">
+                        <!-- <label for="inputPassword4" class="form-label">Password</label> -->
+                        <input type="password" class="form-control" id="inputPassword4" placeholder="Apellido">
+                    </div>
+                    <div class="col-12">
+                        <!-- <label for="inputAddress" class="form-label">Address</label> -->
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Nro de documento">
+                    </div>
+                    <div class="col-12">
+                        <!-- <label for="inputAddress" class="form-label">Address</label> -->
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Dirección">
+                    </div>
+                    <div class="col-lg-12 col-xl-8">
+                        <!-- <label for="inputCity" class="form-label">City</label> -->
+                        <input type="text" class="form-control" id="inputCity" placeholder="Ciudad">
+                    </div>
+                    <div class="col-lg-12 col-xl-4">
+                        <!-- <label for="inputZip" class="form-label">Zip</label> -->
+                        <input type="text" class="form-control" id="inputZip" placeholder="Código Postal">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Finalizar compra</button>
+                    </div>
+                </form>
             </div>
         </section>
     </main>
@@ -143,8 +115,7 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="./js/stockproductos.js"></script>
-    <script type="module" src="./js/productos.js"></script>
+    <script src="./js/checkout.js"></script>
 </body>
 
 </html>

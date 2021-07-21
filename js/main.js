@@ -12,12 +12,12 @@ class Producto {
     }
 }
 /* ---------- Selectores ---------- */
-const nav = document.querySelector(".nav");
 const listaProductos = document.querySelector("#lista-productos");
-const precioCarrito = document.querySelector(".nav__cart__precio");
 const tablaCarrito = document.querySelector(".lista__carrito tbody");
-const botonCarrito = $(".nav__carrito");
+const precioCarrito = document.querySelector(".nav__cart__precio");
 const estiloBotonCarrito = $(".nav__cart");
+const nav = document.querySelector(".nav");
+const botonCarrito = $(".nav__carrito");
 const subMenuCarrito = $(".nav__submenu");
 
 /* ---------- Listeners ---------- */
@@ -101,15 +101,13 @@ export function renderizarProductosHTML(productos) {
         divCard.classList.add("col");
         divCard.innerHTML = `
             <div class="producto">
-                <a href="#" target="_blank" class="agregar__carrito" data-id="${id}">
-                    <img class="producto__imagenProducto" src="${imagen}" alt="">
-                </a>
+                <img class="producto__imagenProducto" src="${imagen}" alt="">
                 <div class="producto__detalle">
                     <p class="producto__nombre">${nombre}</p>
                     <p class="producto__precio">${precio}</p>
                 </div>
                 <div>
-                    <button class="producto__btn__agregarCarrito">
+                    <button class="producto__btn__agregarCarrito" data-id="${id}">
                         <i class="fas fa-shopping-cart"></i>
                         Agregar producto
                     </button>
@@ -153,7 +151,7 @@ function obtenerDatosProducto(cardProducto) {
         cardProducto.querySelector(".producto__nombre").textContent,
         cardProducto.querySelector(".producto__precio").textContent.slice(1),
         cardProducto.querySelector(".producto__precio").textContent.slice(1),
-        cardProducto.querySelector('a').getAttribute('data-id'),
+        cardProducto.querySelector(".producto__btn__agregarCarrito").getAttribute('data-id'),
         cardProducto.querySelector(".producto__imagenProducto").src,
         1);
     const existe = carrito.some(producto => producto.id === productoAgregado.id);
@@ -172,7 +170,7 @@ function obtenerDatosProducto(cardProducto) {
     insertarCarritoHTML();
 }
 
-function insertarCarritoHTML() {
+export function insertarCarritoHTML() {
     borrarCarritoHTML();
     precioTotal = 0;
 

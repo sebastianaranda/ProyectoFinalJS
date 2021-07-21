@@ -85,12 +85,13 @@ table {
     .nav__menuDesktop ul {
       height: 16px;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center; }
     .nav__menuDesktop li {
       height: 16px;
       list-style: none;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      margin-left: 100px; }
     .nav__menuDesktop a {
       font-family: "Poppins", sans-serif;
       font-size: 16px;
@@ -213,7 +214,85 @@ table {
   column-gap: 30px;
   column-width: 65px;
   margin-top: 100px;
-  grid-template-areas: "banner banner banner banner banner banner banner banner banner banner banner banner" "marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas" "destacados destacados destacados destacados destacados destacados destacados destacados destacados destacados destacados destacados" "promo promo promo promo promo promo promo promo promo promo promo promo" "servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios" "footer footer footer footer footer footer footer footer footer footer footer footer"; }
+  grid-template-areas: "banner banner banner banner banner banner banner banner banner banner banner banner" "marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas" "productos productos productos productos productos productos productos productos productos productos productos productos" "promo promo promo promo promo promo promo promo promo promo promo promo" "servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios"; }
+
+.checkout {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  column-gap: 30px;
+  column-width: 65px;
+  margin-top: 100px;
+  grid-template-areas: "container container container container container container container container container container container container"; }
+  .checkout__volver {
+    font-family: "DIN Next LT Pro Medium", sans-serif;
+    font-size: 14px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    max-width: 350px;
+    height: 36px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    margin-top: 30px; }
+    .checkout__volver:hover {
+      background-color: #D2D2D2; }
+  .checkout__container {
+    grid-area: container;
+    width: 100%;
+    grid-column-start: 2;
+    grid-column-end: 12;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    column-gap: 30px;
+    column-width: 65px; }
+    .checkout__container__productos {
+      width: 100%; }
+      .checkout__container__productos__title {
+        margin-top: 30px;
+        margin-bottom: 30px; }
+    .checkout__container__form {
+      width: 100%;
+      background-color: #F5F5F5; }
+      .checkout__container__form__title {
+        margin-top: 96px;
+        margin-bottom: 30px; }
+      .checkout__container__form form {
+        max-width: 80%;
+        margin: auto; }
+  .checkout__producto {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px; }
+    .checkout__producto__imagen {
+      max-width: 120px; }
+    .checkout__producto__detalle {
+      width: 100%;
+      padding-left: 30px;
+      height: 120px; }
+    .checkout__producto__nombre {
+      font-family: "DIN Next LT Pro Medium", sans-serif;
+      font-size: 24px; }
+    .checkout__producto__unidades {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 14px; }
+    .checkout__producto__cantidad {
+      font-family: "DIN Next LT Pro Regular", sans-serif;
+      font-style: normal;
+      font-size: 14px;
+      line-height: 14px; }
+    .checkout__producto__precio {
+      font-family: "DIN Next LT Pro Medium", sans-serif;
+      font-size: 20px;
+      line-height: 20px;
+      text-align: right; }
 
 .banner {
   width: 100%;
@@ -261,35 +340,40 @@ table {
   .alerta-hidden {
     opacity: 0; }
 
-.destacados {
+.productos {
   margin-top: 60px;
-  grid-area: destacados;
+  grid-area: productos;
   grid-column-start: 2;
   grid-column-end: 12; }
-  .destacados__header {
+  .productos__header {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px; }
-  .destacados .col {
+  .productos__filtro {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center; }
+    .productos__filtro-title {
+      margin-right: 30px;
+      font-family: "Poppins", sans-serif; }
+    .productos__filtro .form-select {
+      width: max-content;
+      font-family: "Poppins", sans-serif; }
+  .productos .col {
     text-align: center; }
-
-.form-select {
-  width: max-content;
-  font-family: "Poppins", sans-serif; }
 
 .producto {
   margin-top: 15px;
   margin-bottom: 15px; }
-  .producto a {
-    display: inline-block;
-    margin: 0; }
   .producto__imagenProducto {
     width: 100%;
     object-fit: cover;
     vertical-align: middle;
-    margin: 0; }
+    margin: 0;
+    max-width: 350px; }
   .producto__detalle {
     background-color: #F5F5F5;
     display: flex;
@@ -300,6 +384,8 @@ table {
     margin: 0;
     font-family: "DIN Next LT Pro Medium", sans-serif;
     letter-spacing: 1.25px;
+    width: 100%;
+    max-width: 350px;
     margin: auto; }
   .producto__nombre {
     width: 70%;
@@ -318,6 +404,7 @@ table {
     letter-spacing: 1.25px;
     text-transform: uppercase;
     width: 100%;
+    max-width: 350px;
     height: 36px;
     border: 1px solid #000000;
     border-radius: 4px; }
@@ -418,7 +505,6 @@ table {
     text-align: center; }
 
 .footer {
-  grid-area: footer;
   height: 220px;
   margin: 0 6%; }
   .footer__separator {

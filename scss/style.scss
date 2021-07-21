@@ -96,13 +96,15 @@ table {
 		ul{
 			height: 16px;
 			display: flex;
-            justify-content: space-between;
+            //justify-content: space-between;
+			justify-content: flex-end;
             align-items: center;
 		}
 		li{
 			height: 16px;
             list-style: none;
 			text-transform: uppercase;
+			margin-left: 100px;
 		}
 		a{
 			font-family: $fontPoppins;
@@ -251,10 +253,104 @@ table {
 	grid-template-areas: 
 						"banner banner banner banner banner banner banner banner banner banner banner banner"
 						"marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas"
-						"destacados destacados destacados destacados destacados destacados destacados destacados destacados destacados destacados destacados"
+						"productos productos productos productos productos productos productos productos productos productos productos productos"
 						"promo promo promo promo promo promo promo promo promo promo promo promo"
-						"servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios"
-						"footer footer footer footer footer footer footer footer footer footer footer footer";
+						"servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios";
+}
+
+.checkout{
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: auto;
+	column-gap: 30px;
+	column-width: 65px;
+	margin-top: 100px;
+	grid-template-areas:
+						"container container container container container container container container container container container container";
+	&__volver{
+		font-family: $fontDINMedium;
+		font-size: 14px;
+		letter-spacing: 1.25px;
+		text-transform: uppercase;
+		max-width: 350px;
+		height: 36px;
+		border: 1px solid $colorBlackDark;
+		border-radius: 4px;
+		margin-top: 30px;
+		&:hover{
+			background-color: $colorGrayLight;
+		}
+	}
+	&__container{
+		grid-area: container;
+		width: 100%;
+		grid-column-start: 2;
+		grid-column-end: 12;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: auto;
+		column-gap: 30px;
+		column-width: 65px;
+		&__productos{
+			width: 100%;
+			&__title{
+				margin-top: 30px;
+				margin-bottom: 30px;
+			}
+		}
+		&__form{
+			width: 100%;
+			background-color: $colorSectionBg;
+			&__title{
+				margin-top: 96px;
+				margin-bottom: 30px;
+			}
+			form{
+				max-width: 80%;
+				margin: auto;
+			}
+		}
+	}
+	&__producto{
+		width: 100%;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 30px;
+		&__imagen{
+			max-width: 120px;
+		}
+		&__detalle{
+			width: 100%;
+			padding-left: 30px;
+			height: 120px;
+		}
+		&__nombre{
+			font-family: $fontDINMedium;
+			font-size: 24px;
+		}
+		&__unidades{
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: space-between;
+			align-items: center;
+			margin-top: 14px;
+		}
+		&__cantidad{
+			font-family: $fontDINRegular;
+			font-style: normal;
+			font-size: 14px;
+			line-height: 14px;
+		}
+		&__precio{
+			font-family: $fontDINMedium;
+			font-size: 20px;
+			line-height: 20px;
+			text-align: right;
+		}
+	}
 }
 
 .banner{
@@ -312,12 +408,11 @@ table {
 	}
 }
 
-.destacados{
+.productos{
 	margin-top: 60px;
-	grid-area: destacados;
+	grid-area: productos;
 	grid-column-start: 2;
 	grid-column-end: 12;
-
 	&__header{
 		display: flex;
 		flex-flow: row nowrap;
@@ -325,31 +420,34 @@ table {
 		align-items: center;
 		margin-bottom: 15px;
 	}
-
+	&__filtro{
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+		&-title{
+			margin-right: 30px;
+			font-family: $fontPoppins;
+		}
+		.form-select{
+			width: max-content;
+			font-family: $fontPoppins;
+		}
+	}
 	.col{
 		text-align: center;
 	}
 }
 
-.form-select{
-	width: max-content;
-	font-family: $fontPoppins;
-}
-
 .producto{
 	margin-top: 15px;
 	margin-bottom: 15px;
-
-	a{
-		display: inline-block;
-		margin: 0;
-		//width: 80%;
-	}
 	&__imagenProducto{
 		width: 100%;
 		object-fit: cover;
 		vertical-align: middle;
 		margin: 0;
+		max-width: 350px;
 	}
 	&__detalle{
 		background-color: $colorBorder;
@@ -361,7 +459,8 @@ table {
 		margin: 0;
 		font-family: $fontDINMedium;
 		letter-spacing: 1.25px;
-		//width: 80%;
+		width: 100%;
+		max-width: 350px;
 		margin: auto;
 	}
 	&__nombre{
@@ -382,8 +481,8 @@ table {
 		font-size: 14px;
 		letter-spacing: 1.25px;
 		text-transform: uppercase;
-		//width: 80%;
 		width: 100%;
+		max-width: 350px;
 		height: 36px;
 		border: 1px solid $colorBlackDark;
 		border-radius: 4px;
@@ -506,15 +605,12 @@ table {
 }
 
 .footer{
-	grid-area: footer;
 	height: 220px;
 	margin: 0 6%;
-
 	&__separator{
 		color: $colorBlackDark;
 		margin: 0;
 	}
-
 	&__container{
 		display: flex;
 		flex-flow: row nowrap;
@@ -555,7 +651,6 @@ table {
 				}
 			}
 		}
-		
 	}
 	&__logo{
 		width: 200px;
@@ -568,7 +663,6 @@ table {
 		flex-flow: row nowrap;
 		justify-content: space-between;
 		align-items: center;
-
 		.icono{
 			font-size: 24px;
 			color: $colorBlackDark;
@@ -578,3 +672,4 @@ table {
 		}
 	}
 }
+
