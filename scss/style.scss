@@ -291,8 +291,8 @@ table {
 	&__container{
 		grid-area: container;
 		width: 100%;
-		grid-column-start: 2;
-		grid-column-end: 12;
+		//grid-column-start: 2;
+		//grid-column-end: 12;
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: auto;
@@ -300,6 +300,7 @@ table {
 		column-width: 65px;
 		&__productos{
 			width: 100%;
+			padding-left: 8.33%;
 			&__title{
 				margin-top: 30px;
 				margin-bottom: 30px;
@@ -308,6 +309,8 @@ table {
 		&__form{
 			width: 100%;
 			background-color: $colorSectionBg;
+			padding-right: 8.33%;
+			font-family: $fontPoppins;
 			&__title{
 				margin-top: 96px;
 				margin-bottom: 30px;
@@ -315,6 +318,17 @@ table {
 			form{
 				max-width: 80%;
 				margin: auto;
+			}
+			&-boton{
+				text-align: right;
+				margin-bottom: 30px;
+			}
+			#precio__total{
+				font-family: $fontDINMedium;
+				font-size: 28px;
+				line-height: 20px;
+				text-align: right;
+				margin-top: 30px;
 			}
 		}
 	}
@@ -357,6 +371,10 @@ table {
 			text-align: right;
 		}
 	}
+}
+
+.checkout form input{
+	border: 1px solid #988;
 }
 
 .banner{

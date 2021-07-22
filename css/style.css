@@ -245,27 +245,37 @@ table {
   .checkout__container {
     grid-area: container;
     width: 100%;
-    grid-column-start: 2;
-    grid-column-end: 12;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     column-gap: 30px;
     column-width: 65px; }
     .checkout__container__productos {
-      width: 100%; }
+      width: 100%;
+      padding-left: 8.33%; }
       .checkout__container__productos__title {
         margin-top: 30px;
         margin-bottom: 30px; }
     .checkout__container__form {
       width: 100%;
-      background-color: #F5F5F5; }
+      background-color: #F5F5F5;
+      padding-right: 8.33%;
+      font-family: "Poppins", sans-serif; }
       .checkout__container__form__title {
         margin-top: 96px;
         margin-bottom: 30px; }
       .checkout__container__form form {
         max-width: 80%;
         margin: auto; }
+      .checkout__container__form-boton {
+        text-align: right;
+        margin-bottom: 30px; }
+      .checkout__container__form #precio__total {
+        font-family: "DIN Next LT Pro Medium", sans-serif;
+        font-size: 28px;
+        line-height: 20px;
+        text-align: right;
+        margin-top: 30px; }
   .checkout__producto {
     width: 100%;
     display: flex;
@@ -298,6 +308,9 @@ table {
       font-size: 20px;
       line-height: 20px;
       text-align: right; }
+
+.checkout form input {
+  border: 1px solid #988; }
 
 .banner {
   width: 100%;
