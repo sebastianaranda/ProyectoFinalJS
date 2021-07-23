@@ -100,7 +100,7 @@ export function renderizarProductosHTML(productos) {
         const divCard = document.createElement("div");
         divCard.classList.add("col");
         divCard.innerHTML = `
-            <div class="producto">
+            <article class="producto">
                 <img class="producto__imagenProducto" src="${imagen}" alt="">
                 <div class="producto__detalle">
                     <p class="producto__nombre">${nombre}</p>
@@ -112,7 +112,7 @@ export function renderizarProductosHTML(productos) {
                         Agregar producto
                     </button>
                 </div>
-            </div>
+            </article>
         `;
         listaProductos.appendChild(divCard);
     });

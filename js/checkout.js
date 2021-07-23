@@ -31,7 +31,7 @@ function insertarCarritoCheckout() {
         const divCard = document.createElement("div");
         divCard.classList.add("col");
         divCard.innerHTML = `
-            <div class="checkout__producto">
+            <article class="checkout__producto">
                 <img class="checkout__producto__imagen" src="${imagen}" alt="">
                 <div class="checkout__producto__detalle">
                     <p class="checkout__producto__nombre">${nombre}</p>
@@ -40,7 +40,7 @@ function insertarCarritoCheckout() {
                         <p class="checkout__producto__precio">$${precio}</p>
                     </div>
                 </div>
-            </div>
+            </article>
         `;
         listaProductos.appendChild(divCard);
     });
