@@ -83,14 +83,15 @@ table {
     width: 204px;
     height: 60px; }
   .nav__menuDesktop {
-    width: 80%;
+    width: 100%;
     margin: auto;
     grid-area: nav; }
     .nav__menuDesktop ul {
       height: 16px;
       display: flex;
       justify-content: flex-end;
-      align-items: center; }
+      align-items: center;
+      padding-right: 10%; }
     .nav__menuDesktop li {
       height: 16px;
       list-style: none;
@@ -335,15 +336,19 @@ table {
   margin-top: 60px;
   grid-area: marcas;
   grid-column-start: 2;
-  grid-column-end: 12; }
+  grid-column-end: 12;
+  width: 100%; }
   .marcas__logos {
     margin-top: 30px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    align-items: center; }
+    align-items: center;
+    width: 100%; }
     .marcas__logos img {
-      max-height: 120px; }
+      max-height: 120px;
+      width: 100%;
+      object-fit: contain; }
 
 .alerta {
   width: 70%;
@@ -577,3 +582,17 @@ table {
       color: #000000; }
       .footer__socialMedia .icono:hover {
         color: #8A8A8A; }
+
+@media only screen and (max-width: 768px) {
+  .nav__logoContainer {
+    width: 100%;
+    height: auto; }
+  .nav__logo {
+    width: 100%;
+    height: auto; }
+  .nav__menuDesktop li {
+    margin-left: 20%; }
+  .bannerPromo__container {
+    width: 100%;
+    max-width: 90%;
+    left: 5%; } }

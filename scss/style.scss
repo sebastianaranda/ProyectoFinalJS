@@ -95,15 +95,15 @@ table {
 	}
 
 	&__menuDesktop{
-		width: 80%;
+		width: 100%;
 		margin: auto;
 		grid-area: nav;
 		ul{
 			height: 16px;
 			display: flex;
-            //justify-content: space-between;
 			justify-content: flex-end;
             align-items: center;
+			padding-right: 10%;
 		}
 		li{
 			height: 16px;
@@ -291,8 +291,6 @@ table {
 	&__container{
 		grid-area: container;
 		width: 100%;
-		//grid-column-start: 2;
-		//grid-column-end: 12;
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: auto;
@@ -404,15 +402,18 @@ table {
 	grid-area: marcas;
 	grid-column-start: 2;
 	grid-column-end: 12;
-	
+	width: 100%;	
 	&__logos{
 		margin-top: 30px;
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: space-between;
 		align-items: center;
+		width: 100%;
 		img{
 			max-height: 120px;
+			width: 100%;
+			object-fit: contain;
 		}
 	}
 }
@@ -697,3 +698,72 @@ table {
 	}
 }
 
+
+@media only screen and (max-width: 768px){
+	.nav{
+		&__logoContainer{
+			width: 100%;
+			height: auto;
+		}
+		&__logo{
+			width: 100%;
+			height: auto;
+		}
+		&__menuDesktop{
+			ul{
+			}
+			li{
+				margin-left: 20%;
+			}
+			a{
+			}
+		}
+		&__carrito{
+			& li{
+			}
+		}
+		&__cart{
+			p{
+			}
+			i{
+			}
+			&:hover{
+			}
+			&.disabled{
+				p{
+				}
+			}
+		}
+		&__submenu{
+			&__title{
+			}
+		}
+	}
+	.bannerPromo{
+		&__container{
+			width: 100%;
+			max-width: 90%;
+			left: 5%;
+		}
+		&__texto{
+		}
+		img{
+		}
+		button{
+			&:hover{
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 600px){
+
+}
+
+@media only screen and (max-width: 425px){
+
+}
+
+@media only screen and (max-width: 375px){
+
+}
