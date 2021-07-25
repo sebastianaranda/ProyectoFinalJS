@@ -1,6 +1,7 @@
 /* ---------- Declaro Variables ---------- */
 let carrito = [];
 let precioTotal;
+let menuOpen = false;
 class Producto {
     constructor(nombre, precio, precioUnidad, id, imagen, cantidad) {
         this.nombre = nombre;
@@ -15,14 +16,17 @@ class Producto {
 const listaProductos = document.querySelector("#lista-productos");
 const tablaCarrito = document.querySelector(".lista__carrito tbody");
 const precioCarrito = document.querySelector(".nav__cart__precio");
-const estiloBotonCarrito = $(".nav__cart");
+const botonCarrito = $(".nav__cart");
 const nav = document.querySelector(".nav");
-const botonCarrito = $(".nav__carrito");
 const subMenuCarrito = $(".nav__submenu");
+const navMobile = document.querySelector(".nav__icoMobile");
+const iconoMobile = document.getElementById("iconoMenu");
+const menuMobile = document.querySelector(".nav__menuMobile");
 
 /* ---------- Listeners ---------- */
 listaProductos.addEventListener("click", agregarProducto);
 tablaCarrito.addEventListener("click", borrarProducto);
+navMobile.addEventListener("click", accionarMenuMobile);
 
 /* ---------- Creo alertas ---------- */
 const alerta = document.createElement("div");
@@ -76,20 +80,34 @@ $(document).ready(() => {
 });
 
 /* ---------- JQuery para subMenu de Carrito ---------- */
-botonCarrito.hover(() => {
-    if (carrito.length != 0) {
+
+botonCarrito.click((e) => {
+    if (menuOpen) {
+        subMenuCarrito.slideUp();
+        menuOpen = false;
+    } else {
         subMenuCarrito.slideDown();
+        menuOpen = true;
     }
-}, () => {
-    subMenuCarrito.slideUp();
-});
+})
 
 /* ---------- Función que habilita o deshabilita el carrito ---------- */
 function checkBotonCarrito() {
     if (carrito.length == 0) {
-        estiloBotonCarrito.addClass("disabled");
+        botonCarrito.addClass("disabled");
     } else {
-        estiloBotonCarrito.removeClass("disabled");
+        botonCarrito.removeClass("disabled");
+    }
+}
+
+function accionarMenuMobile(e) {
+    e.preventDefault();
+    if (menuMobile.style.display != "block") {
+        menuMobile.style.display = "block";
+        iconoMobile.src = "./resources/icons/menu_open.svg";
+    } else {
+        menuMobile.style.display = "none";
+        iconoMobile.src = "./resources/icons/menu.svg";
     }
 }
 

@@ -82,6 +82,8 @@ table {
   .nav__logo {
     width: 204px;
     height: 60px; }
+  .nav__icoMobile {
+    display: none; }
   .nav__menuDesktop {
     width: 100%;
     margin: auto;
@@ -104,12 +106,11 @@ table {
       text-decoration: none;
       font-weight: 600;
       color: #000000; }
+  .nav__menuMobile {
+    display: none; }
   .nav__carrito {
     grid-area: cart;
-    grid-column-end: 12;
-    /* &:hover .nav__submenu{
-			display: block;
-		} */ }
+    grid-column-end: 12; }
     .nav__carrito li {
       position: relative; }
   .nav__cart {
@@ -349,6 +350,8 @@ table {
       max-height: 120px;
       width: 100%;
       object-fit: contain; }
+  .marcas__carrousel {
+    display: none; }
 
 .alerta {
   width: 70%;
@@ -491,7 +494,6 @@ table {
 
 .servicios {
   grid-area: servicios;
-  height: 268px;
   display: flex;
   align-items: center;
   grid-column-start: 2;
@@ -499,12 +501,12 @@ table {
   .servicios__container {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 30px;
-    column-width: 65px;
-    grid-template-areas: "servicioLeft servicioLeft servicioLeft servicioLeft servicioMid servicioMid servicioMid servicioMid servicioRight servicioRight servicioRight servicioRight"; }
-  .servicios__left, .servicios__mid, .servicios__right {
-    grid-area: servicioLeft;
+    grid-template-columns: repeat(auto-fit, minmax(11.3rem, 1fr));
+    column-gap: 1.8rem;
+    row-gap: 1.8rem;
+    margin-top: 30px;
+    margin-bottom: 30px; }
+  .servicios__card {
     height: 168px;
     width: 100%;
     display: flex;
@@ -513,19 +515,15 @@ table {
     align-items: center;
     background-color: #F5F5F5;
     border-radius: 6px; }
-  .servicios__mid {
-    grid-area: servicioMid; }
-  .servicios__right {
-    grid-area: servicioRight; }
-  .servicios img {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 30px; }
-  .servicios p {
-    font-family: "DIN Next LT Pro Regular", sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.5px;
-    text-align: center; }
+    .servicios__card img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 30px; }
+    .servicios__card p {
+      font-family: "DIN Next LT Pro Regular", sans-serif;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      text-align: center; }
 
 .footer {
   height: 220px;
@@ -595,4 +593,85 @@ table {
   .bannerPromo__container {
     width: 100%;
     max-width: 90%;
-    left: 5%; } }
+    left: 5%; }
+  .titulo {
+    height: unset; } }
+
+@media only screen and (max-width: 600px) {
+  .nav {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas: "ico ico ico ico logo logo logo logo cart cart cart cart"; }
+    .nav__logoContainer {
+      grid-area: logo; }
+    .nav__icoMobile {
+      display: block;
+      grid-area: ico;
+      grid-column-start: 2;
+      width: 36px; }
+      .nav__icoMobile img {
+        width: 36px;
+        height: 36px; }
+    .nav__menuDesktop {
+      display: none; }
+    .nav__menuMobile {
+      display: none;
+      position: absolute;
+      width: 100%;
+      background-color: #FFFFFF;
+      top: 100px;
+      border-bottom: 1px solid #D2D2D2;
+      box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.1); }
+      .nav__menuMobile ul {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-left: 10%; }
+      .nav__menuMobile li {
+        list-style: none;
+        text-transform: uppercase; }
+      .nav__menuMobile a {
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        line-height: 4rem;
+        text-decoration: none;
+        font-weight: 600;
+        color: #000000; }
+  .marcas {
+    margin-top: 60px;
+    grid-area: marcas;
+    grid-column-start: 2;
+    grid-column-end: 12;
+    width: 100%; }
+    .marcas__logos {
+      margin-top: 30px;
+      display: none;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%; }
+      .marcas__logos img {
+        max-height: 120px;
+        width: 33%;
+        object-fit: contain; }
+    .marcas__carrousel {
+      display: block;
+      width: 100%;
+      margin-top: 30px; }
+      .marcas__carrousel img {
+        object-fit: contain;
+        max-height: 120px; }
+  .footer__menu {
+    width: 33%; }
+  .footer__logo {
+    width: 33%;
+    height: unset; }
+    .footer__logo img {
+      width: 100%; }
+  .footer__socialMedia {
+    width: 33%;
+    justify-content: flex-end; }
+    .footer__socialMedia .icono {
+      margin-left: 20px; } }

@@ -81,19 +81,19 @@ table {
 	align-items: center;
 	justify-content: end;
 	z-index: 1;
-
 	&__logoContainer{
 		width: 100%;
 		height: 60px;
 		grid-area: logo;
 		grid-column-start: 2;
 	}
-
 	&__logo{
 		width: 204px;
 		height: 60px;
 	}
-
+	&__icoMobile{
+		display: none;
+	}
 	&__menuDesktop{
 		width: 100%;
 		margin: auto;
@@ -120,15 +120,15 @@ table {
 			color: $colorBlackDark;
 		}
 	}
+	&__menuMobile{
+		display: none;
+	}
 	&__carrito{
 		grid-area: cart;
 		grid-column-end: 12;
 		& li{
 			position: relative;
 		}
-		/* &:hover .nav__submenu{
-			display: block;
-		} */
 	}
 	&__cart{
 		display: flex;
@@ -177,7 +177,6 @@ table {
 		padding-left: 15px;
 		padding-right: 15px;
     	min-width: 350px;
-
 		&__title{
 			font-family: $fontDINMedium;
 			font-size: 18px;
@@ -416,6 +415,9 @@ table {
 			object-fit: contain;
 		}
 	}
+	&__carrousel{
+		display: none;
+	}
 }
 
 .alerta{
@@ -583,7 +585,6 @@ table {
 
 .servicios{
 	grid-area: servicios;
-	height: 268px;
 	display: flex;
 	align-items: center;
 	grid-column-start: 2;
@@ -591,14 +592,13 @@ table {
 	&__container{
 		width: 100%;
 		display: grid;
-		grid-template-columns: repeat(12, 1fr);
-		column-gap: 30px;
-		column-width: 65px;
-		grid-template-areas:
-							"servicioLeft servicioLeft servicioLeft servicioLeft servicioMid servicioMid servicioMid servicioMid servicioRight servicioRight servicioRight servicioRight";
+		grid-template-columns: repeat(auto-fit, minmax(11.3rem, 1fr));
+		column-gap: 1.8rem;
+		row-gap: 1.8rem;
+		margin-top: 30px;
+		margin-bottom: 30px;
 	}
-	&__left{
-		grid-area: servicioLeft;
+	&__card{
 		height: 168px;
 		width: 100%;
 		display: flex;
@@ -607,25 +607,17 @@ table {
 		align-items: center;
 		background-color: $colorSectionBg;
 		border-radius: 6px;
-	}
-	&__mid{
-		@extend .servicios__left;
-		grid-area: servicioMid;
-	}
-	&__right{
-		@extend .servicios__left;
-		grid-area: servicioRight;
-	}
-	img{
-		width: 40px;
-		height: 40px;
-		margin-bottom: 30px;
-	}
-	p{
-		font-family: $fontDINRegular;
-		font-size: 16px;
-		letter-spacing: 0.5px;
-		text-align: center;
+		img{
+			width: 40px;
+			height: 40px;
+			margin-bottom: 30px;
+		}
+		p{
+			font-family: $fontDINRegular;
+			font-size: 16px;
+			letter-spacing: 0.5px;
+			text-align: center;
+		}
 	}
 }
 
@@ -709,6 +701,8 @@ table {
 			width: 100%;
 			height: auto;
 		}
+		&__icoMobile{
+		}
 		&__menuDesktop{
 			ul{
 			}
@@ -717,6 +711,8 @@ table {
 			}
 			a{
 			}
+		}
+		&__menuMobile{
 		}
 		&__carrito{
 			& li{
@@ -754,10 +750,155 @@ table {
 			}
 		}
 	}
+	.titulo{
+		height: unset;
+	}
 }
 
 @media only screen and (max-width: 600px){
-
+	.nav{
+		grid-template-columns: repeat(12,1fr);
+		grid-template-areas:
+							"ico ico ico ico logo logo logo logo cart cart cart cart";
+		&__logoContainer{
+			grid-area: logo;
+		}
+		&__logo{
+		}
+		&__icoMobile{
+			display: block;
+			grid-area: ico;
+			grid-column-start: 2;
+			width: 36px;
+			img{
+				width: 36px;
+				height: 36px;
+			}
+		}
+		&__menuDesktop{
+			display: none;
+			ul{
+			}
+			li{
+			}
+			a{
+			}
+		}
+		&__menuMobile{
+			display: none;
+			position: absolute;
+			width: 100%;
+			background-color: $colorWhite;
+			top: 100px;
+			border-bottom: 1px solid $colorGrayLight;
+			box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.1);
+			ul{
+				position: relative;
+				width: 100%;
+				display: flex;
+				flex-flow: column;
+				justify-content: flex-start;
+				align-items:flex-start;
+				padding-left: 10%;
+			}
+			li{
+				list-style: none;
+				text-transform: uppercase;
+			}
+			a{
+				font-family: $fontPoppins;
+				font-size: 1rem;
+				line-height: 4rem;
+				text-decoration: none;
+				font-weight: 600;
+				color: $colorBlackDark;
+			}
+		}
+		&__carrito{
+			& li{
+			}
+		}
+		&__cart{
+			p{
+			}
+			i{
+			}
+			&:hover{
+			}
+			&.disabled{
+				p{
+				}
+			}
+		}
+		&__submenu{
+			&__title{
+			}
+		}
+	}
+	.marcas{
+		margin-top: 60px;
+		grid-area: marcas;
+		grid-column-start: 2;
+		grid-column-end: 12;
+		width: 100%;	
+		&__logos{
+			margin-top: 30px;
+			display: none;
+			flex-flow: row wrap;
+			justify-content: space-between;
+			align-items:center;
+			width: 100%;
+			img{
+				max-height: 120px;
+				width: 33%;
+				object-fit: contain;
+			}
+		}
+		&__carrousel{
+			display: block;
+			width: 100%;
+			margin-top: 30px;
+			img{
+				object-fit: contain;
+				max-height: 120px;
+			}
+		}
+	}
+	.footer{
+		&__separator{
+		}
+		&__container{
+		}
+		&__menu{
+			width: 33%;
+			ul{
+				li{
+					&.title{
+					}
+					a{
+						&:hover{
+						}
+					}
+				}
+			}
+		}
+		&__logo{
+			width: 33%;
+			height: unset;
+			img{
+				width: 100%;
+			}
+		}
+		&__socialMedia{
+			width: 33%;
+			justify-content: flex-end;
+			.icono{
+				margin-left: 20px;
+				&:hover{
+				}
+			}
+		}
+	}
 }
 
 @media only screen and (max-width: 425px){

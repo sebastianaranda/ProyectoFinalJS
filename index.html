@@ -18,14 +18,15 @@
 </head>
 
 <body>
-
     <header class="nav">
         <div class="nav__logoContainer">
             <a href="./index.html">
                 <img class="nav__logo" src="./resources/logos/logoEH.png" alt="">
             </a>
         </div>
-
+        <div class="nav__icoMobile">
+            <img id="iconoMenu" src="./resources/icons/menu.svg" alt="">
+        </div>
         <nav class="nav__menuDesktop">
             <ul>
                 <li>
@@ -36,6 +37,17 @@
                 </li>
             </ul>
         </nav>
+        <nav class="nav__menuMobile">
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="./productos.html">Productos</a>
+                </li>
+            </ul>
+        </nav>
+
 
         <ul class="nav__carrito">
             <li>
@@ -53,14 +65,12 @@
                 </div>
             </li>
         </ul>
-
     </header>
 
     <main class="main">
         <section class="banner">
             <img src="./resources/banners/banner-top.jpg" alt="">
         </section>
-
         <section class="marcas">
             <h2 class="titulo">Tus equipos favoritos, en un solo lugar</h2>
             <div class="marcas__logos">
@@ -70,8 +80,26 @@
                 <img src="./resources/logos/Sen_black.png" alt="">
                 <img src="./resources/logos/heretics_black.png" alt="">
             </div>
+            <div class="carousel slide marcas__carrousel" id="carouselExampleInterval" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="3000">
+                        <img src="./resources/logos/G2_Horizontal_Text_Light_background.svg" class="d-block w-100"
+                            alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <img src="./resources/logos/v1_Black.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <img src="./resources/logos/fnatic_black.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <img src="./resources/logos/Sen_black.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <img src="./resources/logos/heretics_black.png" class="d-block w-100" alt="...">
+                    </div>
+                </div>
         </section>
-
         <section class="productos">
             <div class="productos__header">
                 <h2 class="titulo">Productos destacados</h2>
@@ -81,9 +109,7 @@
             </div>
             <div id="lista-productos" class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3">
             </div>
-
         </section>
-
         <section class="bannerPromo">
             <div class="bannerPromo__container">
                 <p class="bannerPromo__texto">New Accessories</p>
@@ -91,25 +117,23 @@
             </div>
             <img src="./resources/banners/bannerPromo.png" alt="">
         </section>
-
         <section class="servicios">
             <div class="servicios__container">
-                <div class="servicios__left">
+                <div class="servicios__card">
                     <img src="./resources/icons/mdi_shield-alert.svg" alt="">
                     <p>1 año de garantia en todos<br>los productos.</p>
                 </div>
-                <div class="servicios__mid">
+                <div class="servicios__card">
                     <img src="./resources/icons/mdi_truck.svg" alt="">
                     <p>Envío gratis en compras<br>mayores a $3.000.</p>
                 </div>
-                <div class="servicios__right">
+                <div class="servicios__card">
                     <img src="./resources/icons/mdi_chat.svg" alt="">
                     <p>Soporte técnico las 24 horas,<br>los 7 días de la semana.</p>
                 </div>
             </div>
         </section>
     </main>
-
     <footer class="footer">
         <hr class="footer__separator">
         <div class="footer__container">
@@ -143,7 +167,6 @@
             </div>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
         crossorigin="anonymous"></script>
