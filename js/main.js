@@ -80,7 +80,6 @@ $(document).ready(() => {
 });
 
 /* ---------- JQuery para subMenu de Carrito ---------- */
-
 botonCarrito.click((e) => {
     if (menuOpen) {
         subMenuCarrito.slideUp();

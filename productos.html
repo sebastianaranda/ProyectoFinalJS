@@ -24,27 +24,32 @@
                 <img class="nav__logo" src="./resources/logos/logoEH.png" alt="">
             </a>
         </div>
-
+        <div class="nav__icoMobile">
+            <img id="iconoMenu" src="./resources/icons/menu.svg" alt="">
+        </div>
         <nav class="nav__menuDesktop">
             <ul>
                 <li>
                     <a href="./index.html">Home</a>
                 </li>
                 <li>
-                    <a href="#">Productos</a>
+                    <a href="./productos.html">Productos</a>
                 </li>
-                <!-- <li>
-                    <a href="">ProKits</a>
-                </li>
-                <li>
-                    <a href="">Lifestyle</a>
-                </li> -->
             </ul>
         </nav>
-
+        <nav class="nav__menuMobile">
+            <ul>
+                <li>
+                    <a href="./index.html">Home</a>
+                </li>
+                <li>
+                    <a href="./productos.html">Productos</a>
+                </li>
+            </ul>
+        </nav>
         <ul class="nav__carrito">
             <li>
-                <div class="nav__cart">
+                <div class="nav__cart disabled">
                     <p class="nav__cart__precio">$0</p>
                     <i class="fas fa-shopping-cart"></i>
                 </div>
@@ -58,7 +63,6 @@
                 </div>
             </li>
         </ul>
-
     </header>
 
     <main class="main">
@@ -79,21 +83,21 @@
                     </select>
                 </div>
             </div>
-            <div id="lista-productos" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
+            <div id="lista-productos" class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3">
             </div>
         </section>
 
         <section class="servicios">
             <div class="servicios__container">
-                <div class="servicios__left">
+                <div class="servicios__card">
                     <img src="./resources/icons/mdi_shield-alert.svg" alt="">
                     <p>1 año de garantia en todos<br>los productos.</p>
                 </div>
-                <div class="servicios__mid">
+                <div class="servicios__card">
                     <img src="./resources/icons/mdi_truck.svg" alt="">
                     <p>Envío gratis en compras<br>mayores a $3.000.</p>
                 </div>
-                <div class="servicios__right">
+                <div class="servicios__card">
                     <img src="./resources/icons/mdi_chat.svg" alt="">
                     <p>Soporte técnico las 24 horas,<br>los 7 días de la semana.</p>
                 </div>

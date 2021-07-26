@@ -3,7 +3,7 @@ let carrito = [];
 let precioTotal;
 
 /* Selectores */
-const botonCarrito = $(".nav__carrito");
+const botonCarrito = $(".nav__cart");
 const subMenuCarrito = $(".nav__submenu");
 const filtroCategorias = document.querySelector("#menuCategorias");
 
@@ -11,14 +11,15 @@ const filtroCategorias = document.querySelector("#menuCategorias");
 filtroCategorias.addEventListener("change", filtrarCategorias);
 
 /* ---------- JQuery para subMenu de Carrito----------*/
-botonCarrito.hover(() => {
-    if (carrito.length != 0) {
+botonCarrito.click((e) => {
+    if (menuOpen) {
+        subMenuCarrito.slideUp();
+        menuOpen = false;
+    } else {
         subMenuCarrito.slideDown();
+        menuOpen = true;
     }
-}, () => {
-    subMenuCarrito.slideUp();
-});
-
+})
 
 /* ---------- JQuery para el Storage----------*/
 $(document).ready(() => {

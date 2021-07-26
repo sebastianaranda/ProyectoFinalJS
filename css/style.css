@@ -663,6 +663,20 @@ table {
       .marcas__carrousel img {
         object-fit: contain;
         max-height: 120px; }
+  .productos {
+    margin-top: 30px; }
+    .productos__header {
+      width: 100%;
+      flex-flow: row wrap; }
+    .productos__filtro {
+      width: 100%;
+      margin-top: 30px; }
+      .productos__filtro-title {
+        display: none; }
+      .productos__filtro .form-select {
+        width: 100%; }
+  .titulo {
+    width: 100%; }
   .footer__menu {
     width: 33%; }
   .footer__logo {
@@ -675,3 +689,26 @@ table {
     justify-content: flex-end; }
     .footer__socialMedia .icono {
       margin-left: 20px; } }
+
+@media only screen and (max-width: 425px) {
+  .bannerPromo__container {
+    width: 100%;
+    max-width: 90%;
+    left: 5%; }
+  .bannerPromo__texto {
+    font-size: 3rem; }
+  .footer__menu {
+    width: 33%; }
+  .footer__logo {
+    width: 33%;
+    height: unset; }
+    .footer__logo img {
+      width: 100%; }
+  .footer__socialMedia {
+    width: 33%;
+    flex-flow: column;
+    justify-content: center;
+    height: max-content;
+    align-items: flex-end; }
+    .footer__socialMedia .icono {
+      margin: 10px 0; } }

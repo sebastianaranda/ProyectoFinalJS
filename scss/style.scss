@@ -690,7 +690,6 @@ table {
 	}
 }
 
-
 @media only screen and (max-width: 768px){
 	.nav{
 		&__logoContainer{
@@ -864,6 +863,29 @@ table {
 			}
 		}
 	}
+	.productos{
+		margin-top: 30px;
+		&__header{
+			width: 100%;
+			flex-flow: row wrap;
+
+		}
+		&__filtro{
+			width: 100%;
+			margin-top: 30px;
+			&-title{
+				display: none;
+			}
+			.form-select{
+				width: 100%;
+			}
+		}
+		.col{
+		}
+	}
+	.titulo{
+		width: 100%;
+	}
 	.footer{
 		&__separator{
 		}
@@ -902,7 +924,60 @@ table {
 }
 
 @media only screen and (max-width: 425px){
-
+	.bannerPromo{
+		&__container{
+			width: 100%;
+			max-width: 90%;
+			left: 5%;
+		}
+		&__texto{
+			font-size: 3rem;
+		}
+		img{
+		}
+		button{
+			&:hover{
+			}
+		}
+	}
+	.footer{
+		&__separator{
+		}
+		&__container{
+		}
+		&__menu{
+			width: 33%;
+			ul{
+				li{
+					&.title{
+					}
+					a{
+						&:hover{
+						}
+					}
+				}
+			}
+		}
+		&__logo{
+			width: 33%;
+			height: unset;
+			img{
+				width: 100%;
+			}
+		}
+		&__socialMedia{
+			width: 33%;
+			flex-flow: column;
+			justify-content: center;
+			height: max-content;
+			align-items: flex-end;
+			.icono{
+				margin: 10px 0;
+				&:hover{
+				}
+			}
+		}
+	}
 }
 
 @media only screen and (max-width: 375px){
