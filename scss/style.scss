@@ -86,6 +86,7 @@ table {
 		height: 60px;
 		grid-area: logo;
 		grid-column-start: 2;
+		z-index: 3;
 	}
 	&__logo{
 		width: 204px;
@@ -169,14 +170,17 @@ table {
 		display: none;
     	position: absolute;
     	right: 0;
-    	top: 100%;
+    	top: 65px;
     	z-index: 2;
     	background-color: $colorWhite;
-		padding-top: 40px;
+		padding-top: 20px;
 		padding-bottom: 20px;
 		padding-left: 15px;
 		padding-right: 15px;
     	min-width: 350px;
+		box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+		border-bottom-left-radius: 4px;
+		border-bottom-right-radius: 4px;
 		&__title{
 			font-family: $fontDINMedium;
 			font-size: 18px;
@@ -534,6 +538,7 @@ table {
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
+	margin-left: auto;
 	i{
 		margin-right: 8px;
 		margin-bottom: 2px;
@@ -981,5 +986,50 @@ table {
 }
 
 @media only screen and (max-width: 375px){
-
+	.nav{
+		&__logoContainer{
+		}
+		&__logo{
+		}
+		&__icoMobile{
+		}
+		&__menuDesktop{
+			ul{
+			}
+			li{
+			}
+			a{
+			}
+		}
+		&__menuMobile{
+		}
+		&__carrito{
+			& li{
+				position: unset;
+			}
+		}
+		&__cart{
+			width: 100%;
+			p{
+				display: none;
+			}
+			i{
+			}
+			&:hover{
+			}
+			&.disabled{
+				p{
+				}
+			}
+		}
+		&__submenu{
+			right: unset;
+			left: 0;
+			width: 100%;
+			min-width: 80%;
+			top: 100px;
+			&__title{
+			}
+		}
+	}
 }

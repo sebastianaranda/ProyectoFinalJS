@@ -78,7 +78,8 @@ table {
     width: 100%;
     height: 60px;
     grid-area: logo;
-    grid-column-start: 2; }
+    grid-column-start: 2;
+    z-index: 3; }
   .nav__logo {
     width: 204px;
     height: 60px; }
@@ -146,14 +147,17 @@ table {
     display: none;
     position: absolute;
     right: 0;
-    top: 100%;
+    top: 65px;
     z-index: 2;
     background-color: #FFFFFF;
-    padding-top: 40px;
+    padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 15px;
     padding-right: 15px;
-    min-width: 350px; }
+    min-width: 350px;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px; }
     .nav__submenu__title {
       font-family: "DIN Next LT Pro Medium", sans-serif;
       font-size: 18px;
@@ -450,7 +454,8 @@ table {
   color: #000000;
   display: flex;
   flex-flow: row nowrap;
-  align-items: center; }
+  align-items: center;
+  margin-left: auto; }
   .verMas i {
     margin-right: 8px;
     margin-bottom: 2px;
@@ -712,3 +717,17 @@ table {
     align-items: flex-end; }
     .footer__socialMedia .icono {
       margin: 10px 0; } }
+
+@media only screen and (max-width: 375px) {
+  .nav__carrito li {
+    position: unset; }
+  .nav__cart {
+    width: 100%; }
+    .nav__cart p {
+      display: none; }
+  .nav__submenu {
+    right: unset;
+    left: 0;
+    width: 100%;
+    min-width: 80%;
+    top: 100px; } }
