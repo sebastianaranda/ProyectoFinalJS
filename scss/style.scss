@@ -191,7 +191,6 @@ table {
 		}
 	}
 }
-
 .lista__carrito{
 	border-collapse: separate;
 	border-spacing: 0 5px;
@@ -249,7 +248,6 @@ table {
 		background-color: $colorGrayLight;
 	}
 }
-
 .main{
 	width: 100%;
 	display: grid;
@@ -265,7 +263,6 @@ table {
 						"promo promo promo promo promo promo promo promo promo promo promo promo"
 						"servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios";
 }
-
 .checkout{
 	width: 100%;
 	min-height: 100%;
@@ -295,13 +292,12 @@ table {
 		grid-area: container;
 		width: 100%;
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(auto-fit, minmax(18rem,1fr));
 		grid-template-rows: auto;
 		column-gap: 30px;
-		column-width: 65px;
 		&__productos{
-			width: 100%;
-			padding-left: 8.33%;
+			width: 90%;
+			margin: 0 auto;
 			&__title{
 				margin-top: 30px;
 				margin-bottom: 30px;
@@ -373,11 +369,9 @@ table {
 		}
 	}
 }
-
 .checkout form input{
 	border: 1px solid #988;
 }
-
 .banner{
 	width: 100%;
 	max-height: 300px;
@@ -388,7 +382,6 @@ table {
 		object-fit: cover;
 	}
 }
-
 .titulo{
 	font-family: $fontDINMedium;
 	font-size: 24px;
@@ -399,7 +392,6 @@ table {
 	padding-left: 15px;
 	text-transform: uppercase;
 }
-
 .marcas{
 	margin-top: 60px;
 	grid-area: marcas;
@@ -423,7 +415,6 @@ table {
 		display: none;
 	}
 }
-
 .alerta{
 	width: 70%;
 	display: none;
@@ -438,7 +429,6 @@ table {
 		opacity: 0;
 	}
 }
-
 .productos{
 	margin-top: 60px;
 	grid-area: productos;
@@ -469,7 +459,6 @@ table {
 		text-align: center;
 	}
 }
-
 .producto{
 	margin-top: 15px;
 	margin-bottom: 15px;
@@ -525,7 +514,6 @@ table {
 		}
 	}
 }
-
 .verMas{
 	font-family: $fontDINMedium;
 	font-size: 14px;
@@ -545,7 +533,6 @@ table {
 		font-size: 14px;
 	}
 }
-
 .bannerPromo{
 	grid-area: promo;
 	position: relative;
@@ -587,7 +574,6 @@ table {
 		}
 	}
 }
-
 .servicios{
 	grid-area: servicios;
 	display: flex;
@@ -625,7 +611,6 @@ table {
 		}
 	}
 }
-
 .footer{
 	height: 220px;
 	margin: 0 6%;
@@ -695,6 +680,20 @@ table {
 	}
 }
 
+.btn_checkout{
+	color: $colorWhite;
+	background-color: $colorBlackDark;
+	transition:
+				color .15s ease-in-out,
+				background-color .15s ease-in-out,
+				border-color .15s ease-in-out,
+				box-shadow .15s ease-in-out;
+	&:hover{
+		color: $colorWhite;
+		background-color: $colorBlackLight;
+	}
+}
+
 @media only screen and (max-width: 768px){
 	.nav{
 		&__logoContainer{
@@ -705,38 +704,13 @@ table {
 			width: 100%;
 			height: auto;
 		}
-		&__icoMobile{
-		}
 		&__menuDesktop{
-			ul{
-			}
 			li{
 				margin-left: 20%;
 			}
-			a{
-			}
 		}
 		&__menuMobile{
-		}
-		&__carrito{
-			& li{
-			}
-		}
-		&__cart{
-			p{
-			}
-			i{
-			}
-			&:hover{
-			}
-			&.disabled{
-				p{
-				}
-			}
-		}
-		&__submenu{
-			&__title{
-			}
+			display: none;
 		}
 	}
 	.bannerPromo{
@@ -745,17 +719,25 @@ table {
 			max-width: 90%;
 			left: 5%;
 		}
-		&__texto{
-		}
-		img{
-		}
-		button{
-			&:hover{
-			}
-		}
 	}
 	.titulo{
 		height: unset;
+	}
+	.checkout{
+		&__producto{
+			&__imagen{
+				max-width: 100px;
+			}
+			&__detalle{
+				height: 100px;
+			}
+			&__nombre{
+				font-size: 1.2rem;
+			}
+			&__cantidad{
+				font-size: 12px;
+			}
+		}
 	}
 }
 
@@ -766,8 +748,6 @@ table {
 							"ico ico ico ico logo logo logo logo cart cart cart cart";
 		&__logoContainer{
 			grid-area: logo;
-		}
-		&__logo{
 		}
 		&__icoMobile{
 			display: block;
@@ -781,12 +761,6 @@ table {
 		}
 		&__menuDesktop{
 			display: none;
-			ul{
-			}
-			li{
-			}
-			a{
-			}
 		}
 		&__menuMobile{
 			display: none;
@@ -816,26 +790,6 @@ table {
 				text-decoration: none;
 				font-weight: 600;
 				color: $colorBlackDark;
-			}
-		}
-		&__carrito{
-			& li{
-			}
-		}
-		&__cart{
-			p{
-			}
-			i{
-			}
-			&:hover{
-			}
-			&.disabled{
-				p{
-				}
-			}
-		}
-		&__submenu{
-			&__title{
 			}
 		}
 	}
@@ -873,7 +827,6 @@ table {
 		&__header{
 			width: 100%;
 			flex-flow: row wrap;
-
 		}
 		&__filtro{
 			width: 100%;
@@ -885,29 +838,13 @@ table {
 				width: 100%;
 			}
 		}
-		.col{
-		}
 	}
 	.titulo{
 		width: 100%;
 	}
 	.footer{
-		&__separator{
-		}
-		&__container{
-		}
 		&__menu{
 			width: 33%;
-			ul{
-				li{
-					&.title{
-					}
-					a{
-						&:hover{
-						}
-					}
-				}
-			}
 		}
 		&__logo{
 			width: 33%;
@@ -921,7 +858,17 @@ table {
 			justify-content: flex-end;
 			.icono{
 				margin-left: 20px;
-				&:hover{
+			}
+		}
+	}
+	.checkout{
+		&__container{
+			&__form{
+				padding-right: 0;
+				&__title{
+					margin-left: 5%;
+					margin-top: 30px;
+					margin-bottom: 15px;
 				}
 			}
 		}
@@ -938,30 +885,10 @@ table {
 		&__texto{
 			font-size: 3rem;
 		}
-		img{
-		}
-		button{
-			&:hover{
-			}
-		}
 	}
 	.footer{
-		&__separator{
-		}
-		&__container{
-		}
 		&__menu{
 			width: 33%;
-			ul{
-				li{
-					&.title{
-					}
-					a{
-						&:hover{
-						}
-					}
-				}
-			}
 		}
 		&__logo{
 			width: 33%;
@@ -987,22 +914,6 @@ table {
 
 @media only screen and (max-width: 375px){
 	.nav{
-		&__logoContainer{
-		}
-		&__logo{
-		}
-		&__icoMobile{
-		}
-		&__menuDesktop{
-			ul{
-			}
-			li{
-			}
-			a{
-			}
-		}
-		&__menuMobile{
-		}
 		&__carrito{
 			& li{
 				position: unset;
@@ -1012,14 +923,6 @@ table {
 			width: 100%;
 			p{
 				display: none;
-			}
-			i{
-			}
-			&:hover{
-			}
-			&.disabled{
-				p{
-				}
 			}
 		}
 		&__submenu{
@@ -1031,5 +934,11 @@ table {
 			&__title{
 			}
 		}
+	}
+	.btn_checkout{
+		width: 100%;
+	}
+	.checkout__volver{
+		width: 95%;
 	}
 }

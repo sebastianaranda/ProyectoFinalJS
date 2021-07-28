@@ -62,7 +62,7 @@ table {
 .nav {
   width: 100%;
   height: 100px;
-  background-color: #FFFFFF;
+  background-color: white;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
   position: fixed;
   top: 0;
@@ -106,7 +106,7 @@ table {
       line-height: 16px;
       text-decoration: none;
       font-weight: 600;
-      color: #000000; }
+      color: black; }
   .nav__menuMobile {
     display: none; }
   .nav__carrito {
@@ -123,8 +123,8 @@ table {
     height: 31px;
     width: max-content;
     border-radius: 6px;
-    background-color: #000000;
-    color: #FFFFFF; }
+    background-color: black;
+    color: white; }
     .nav__cart p {
       font-family: "Poppins", sans-serif;
       font-size: 16px;
@@ -135,11 +135,11 @@ table {
     .nav__cart i {
       font-size: 16px; }
     .nav__cart:hover {
-      background-color: #333333;
+      background-color: #4d4d4d;
       cursor: pointer; }
     .nav__cart.disabled {
-      color: #8A8A8A;
-      background-color: #FFFFFF;
+      color: gray;
+      background-color: white;
       cursor: default; }
       .nav__cart.disabled p {
         visibility: hidden; }
@@ -149,7 +149,7 @@ table {
     right: 0;
     top: 65px;
     z-index: 2;
-    background-color: #FFFFFF;
+    background-color: white;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 15px;
@@ -201,7 +201,7 @@ table {
 
 .fa-times {
   font-size: 14px;
-  color: #000000; }
+  color: black; }
 
 .comprar__carrito {
   font-family: "DIN Next LT Pro Medium", sans-serif;
@@ -210,11 +210,11 @@ table {
   text-transform: uppercase;
   width: 100%;
   height: 36px;
-  border: 1px solid #000000;
+  border: 1px solid black;
   border-radius: 4px;
   margin-top: 15px; }
   .comprar__carrito:hover {
-    background-color: #D2D2D2; }
+    background-color: #cccccc; }
 
 .main {
   width: 100%;
@@ -243,28 +243,27 @@ table {
     text-transform: uppercase;
     max-width: 350px;
     height: 36px;
-    border: 1px solid #000000;
+    border: 1px solid black;
     border-radius: 4px;
     margin-top: 30px; }
     .checkout__volver:hover {
-      background-color: #D2D2D2; }
+      background-color: #cccccc; }
   .checkout__container {
     grid-area: container;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     grid-template-rows: auto;
-    column-gap: 30px;
-    column-width: 65px; }
+    column-gap: 30px; }
     .checkout__container__productos {
-      width: 100%;
-      padding-left: 8.33%; }
+      width: 90%;
+      margin: 0 auto; }
       .checkout__container__productos__title {
         margin-top: 30px;
         margin-bottom: 30px; }
     .checkout__container__form {
       width: 100%;
-      background-color: #F5F5F5;
+      background-color: #e6e6e6;
       padding-right: 8.33%;
       font-family: "Poppins", sans-serif; }
       .checkout__container__form__title {
@@ -332,7 +331,7 @@ table {
   font-size: 24px;
   line-height: 24px;
   height: 29px;
-  border-left: 4px solid #000000;
+  border-left: 4px solid black;
   padding-top: 5px;
   padding-left: 15px;
   text-transform: uppercase; }
@@ -405,7 +404,7 @@ table {
     margin: 0;
     max-width: 350px; }
   .producto__detalle {
-    background-color: #F5F5F5;
+    background-color: #e6e6e6;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -436,10 +435,10 @@ table {
     width: 100%;
     max-width: 350px;
     height: 36px;
-    border: 1px solid #000000;
+    border: 1px solid black;
     border-radius: 4px; }
     .producto__btn__agregarCarrito:hover {
-      background-color: #D2D2D2; }
+      background-color: #cccccc; }
     .producto__btn__agregarCarrito i {
       margin-right: 8px; }
 
@@ -451,7 +450,7 @@ table {
   min-width: 64px;
   text-transform: uppercase;
   text-decoration: none;
-  color: #000000;
+  color: black;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -486,8 +485,8 @@ table {
     margin-top: 50px;
     height: 60px;
     width: 250px;
-    background-color: #FFFFFF;
-    color: #000000;
+    background-color: white;
+    color: black;
     font-family: "DIN Next LT Pro Medium", sans-serif;
     font-size: 14px;
     line-height: 14px;
@@ -495,7 +494,7 @@ table {
     text-transform: uppercase;
     border-radius: 4px; }
     .bannerPromo button:hover {
-      background-color: #D2D2D2; }
+      background-color: #cccccc; }
 
 .servicios {
   grid-area: servicios;
@@ -518,7 +517,7 @@ table {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #F5F5F5;
+    background-color: #e6e6e6;
     border-radius: 6px; }
     .servicios__card img {
       width: 40px;
@@ -534,7 +533,7 @@ table {
   height: 220px;
   margin: 0 6%; }
   .footer__separator {
-    color: #000000;
+    color: black;
     margin: 0; }
   .footer__container {
     display: flex;
@@ -567,7 +566,7 @@ table {
           line-height: 12px;
           text-decoration: none;
           font-weight: 300;
-          color: #000000; }
+          color: black; }
           .footer__menu ul li a:hover {
             font-weight: 500; }
   .footer__logo {
@@ -582,9 +581,17 @@ table {
     align-items: center; }
     .footer__socialMedia .icono {
       font-size: 24px;
-      color: #000000; }
+      color: black; }
       .footer__socialMedia .icono:hover {
-        color: #8A8A8A; }
+        color: gray; }
+
+.btn_checkout {
+  color: white;
+  background-color: black;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out; }
+  .btn_checkout:hover {
+    color: white;
+    background-color: #4d4d4d; }
 
 @media only screen and (max-width: 768px) {
   .nav__logoContainer {
@@ -595,12 +602,22 @@ table {
     height: auto; }
   .nav__menuDesktop li {
     margin-left: 20%; }
+  .nav__menuMobile {
+    display: none; }
   .bannerPromo__container {
     width: 100%;
     max-width: 90%;
     left: 5%; }
   .titulo {
-    height: unset; } }
+    height: unset; }
+  .checkout__producto__imagen {
+    max-width: 100px; }
+  .checkout__producto__detalle {
+    height: 100px; }
+  .checkout__producto__nombre {
+    font-size: 1.2rem; }
+  .checkout__producto__cantidad {
+    font-size: 12px; } }
 
 @media only screen and (max-width: 600px) {
   .nav {
@@ -622,9 +639,9 @@ table {
       display: none;
       position: absolute;
       width: 100%;
-      background-color: #FFFFFF;
+      background-color: white;
       top: 100px;
-      border-bottom: 1px solid #D2D2D2;
+      border-bottom: 1px solid #cccccc;
       box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.1); }
       .nav__menuMobile ul {
         position: relative;
@@ -643,7 +660,7 @@ table {
         line-height: 4rem;
         text-decoration: none;
         font-weight: 600;
-        color: #000000; }
+        color: black; }
   .marcas {
     margin-top: 60px;
     grid-area: marcas;
@@ -693,7 +710,13 @@ table {
     width: 33%;
     justify-content: flex-end; }
     .footer__socialMedia .icono {
-      margin-left: 20px; } }
+      margin-left: 20px; }
+  .checkout__container__form {
+    padding-right: 0; }
+    .checkout__container__form__title {
+      margin-left: 5%;
+      margin-top: 30px;
+      margin-bottom: 15px; } }
 
 @media only screen and (max-width: 425px) {
   .bannerPromo__container {
@@ -730,4 +753,8 @@ table {
     left: 0;
     width: 100%;
     min-width: 80%;
-    top: 100px; } }
+    top: 100px; }
+  .btn_checkout {
+    width: 100%; }
+  .checkout__volver {
+    width: 95%; } }

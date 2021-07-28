@@ -1,10 +1,10 @@
-$colorBlackLight:#333333;
-$colorBlackDark: #000000;
-$colorWhite: #FFFFFF;
-$colorGrayLight: #D2D2D2;
-$colorGrayDark: #8A8A8A;
-$colorBorder: #F5F5F5;
-$colorSectionBg: #F5F5F5;
+$colorBlackLight:hsl(0, 0%, 30%);
+$colorBlackDark: hsl(0, 0%, 0%);
+$colorWhite: hsl(0, 0%, 100%);
+$colorGrayLight: hsl(0, 0%, 80%);
+$colorGrayDark: hsl(0, 0%, 50%);
+$colorBorder: hsl(0, 0%, 90%);
+$colorSectionBg: $colorBorder;
 $fontPoppins: 'Poppins', sans-serif;
 $fontDINMedium: 'DIN Next LT Pro Medium', sans-serif;
 $fontDINRegular: 'DIN Next LT Pro Regular', sans-serif;
