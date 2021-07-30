@@ -32,6 +32,7 @@ navMobile.addEventListener("click", accionarMenuMobile);
 const alerta = document.createElement("div");
 alerta.classList.add("alert", "alert-dismissible", "fade", "show", "alerta");
 
+/* ---------- Funciones alertas ---------- */
 function alertaProductoAgregado(texto) {
     alerta.textContent = texto;
     alerta.classList.add("alert-success");
@@ -71,12 +72,12 @@ function alertaProductoEliminado(texto) {
 $(document).ready(() => {
     if (JSON.parse(localStorage.getItem("carrito"))) {
         carrito = JSON.parse(localStorage.getItem("carrito"));
-        insertarCarritoHTML();
+        insertarCarritoEnHTML();
     }
     checkBotonCarrito();
     //Muestro solo los productos destacados
     const productosDestacados = stockProductos.filter(stockProductos => stockProductos.destacado == true);
-    renderizarProductosHTML(productosDestacados);
+    renderizarProductosEnHTML(productosDestacados);
 });
 
 /* ---------- JQuery para subMenu de Carrito ---------- */
@@ -110,7 +111,7 @@ function accionarMenuMobile(e) {
     }
 }
 
-export function renderizarProductosHTML(productos) {
+export function renderizarProductosEnHTML(productos) {
     listaProductos.innerHTML = "";
     productos.forEach(producto => {
         const { imagen, nombre, precio, id } = producto;
@@ -149,8 +150,8 @@ function borrarProducto(e) {
                 }
             }
         }
-        alertaProductoEliminado("El producto fue eliminado correctamente.")
-        insertarCarritoHTML();
+        alertaProductoEliminado("El producto fue eliminado correctamente.");
+        insertarCarritoEnHTML();
     }
 }
 
@@ -184,17 +185,15 @@ function obtenerDatosProducto(cardProducto) {
     } else {
         carrito = [...carrito, productoAgregado];
     }
-    insertarCarritoHTML();
+    insertarCarritoEnHTML();
 }
 
-export function insertarCarritoHTML() {
+export function insertarCarritoEnHTML() {
     borrarCarritoHTML();
     precioTotal = 0;
-
     if (precioTotal == 0) {
         precioCarrito.textContent = `$${precioTotal}`;
     }
-
     carrito.forEach(producto => {
         const { nombre, precio, precioUnidad, id, imagen, cantidad } = producto;
         const row = document.createElement("tr");

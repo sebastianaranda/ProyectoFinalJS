@@ -1,6 +1,4 @@
-import { renderizarProductosHTML, insertarCarritoHTML } from "./main.js"
-let carrito = [];
-let precioTotal;
+import { renderizarProductosEnHTML } from "./main.js"
 
 /* Selectores */
 const botonCarrito = $(".nav__cart");
@@ -24,7 +22,7 @@ botonCarrito.click((e) => {
 /* ---------- JQuery para el Storage----------*/
 $(document).ready(() => {
     //Cargar todos productos
-    renderizarProductosHTML(stockProductos);
+    renderizarProductosEnHTML(stockProductos);
 });
 
 function filtrarCategorias(e) {
@@ -33,11 +31,11 @@ function filtrarCategorias(e) {
     const categoriaSeleccionada = categorias[filtroCategorias.selectedIndex].value;
     if (categoriaSeleccionada == "todos") {
         //Cargar todos productos
-        renderizarProductosHTML(stockProductos);
+        renderizarProductosEnHTML(stockProductos);
     } else {
         //Muestro solo los productos filtrados
         const productosFiltrados = stockProductos.filter(stockProductos => stockProductos.categoria == categoriaSeleccionada);
-        renderizarProductosHTML(productosFiltrados);
+        renderizarProductosEnHTML(productosFiltrados);
         console.log(categoriaSeleccionada);
     }
 }

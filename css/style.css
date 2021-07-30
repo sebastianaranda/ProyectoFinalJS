@@ -11,19 +11,10 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -31,9 +22,7 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline; }
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block; }
 
 html {
@@ -49,8 +38,7 @@ ol, ul {
 blockquote, q {
   quotes: none; }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before, blockquote:after, q:before, q:after {
   content: '';
   content: none; }
 
@@ -62,10 +50,10 @@ table {
 .nav {
   width: 100%;
   height: 100px;
-  background-color: white;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
   position: fixed;
   top: 0;
+  background-color: white;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 100px;
@@ -97,9 +85,9 @@ table {
       padding-right: 10%; }
     .nav__menuDesktop li {
       height: 16px;
+      margin-left: 100px;
       list-style: none;
-      text-transform: uppercase;
-      margin-left: 100px; }
+      text-transform: uppercase; }
     .nav__menuDesktop a {
       font-family: "Poppins", sans-serif;
       font-size: 16px;
@@ -115,13 +103,13 @@ table {
     .nav__carrito li {
       position: relative; }
   .nav__cart {
+    height: 31px;
+    width: max-content;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 0px 12px;
-    height: 31px;
-    width: max-content;
     border-radius: 6px;
     background-color: black;
     color: white; }
@@ -144,20 +132,20 @@ table {
       .nav__cart.disabled p {
         visibility: hidden; }
   .nav__submenu {
-    display: none;
-    position: absolute;
+    min-width: 350px;
     right: 0;
     top: 65px;
-    z-index: 2;
     background-color: white;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 15px;
     padding-right: 15px;
-    min-width: 350px;
-    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
     border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px; }
+    border-bottom-right-radius: 4px;
+    display: none;
+    position: absolute;
+    z-index: 2;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25); }
     .nav__submenu__title {
       font-family: "DIN Next LT Pro Medium", sans-serif;
       font-size: 18px;
@@ -167,10 +155,10 @@ table {
       margin-bottom: 15px; }
 
 .lista__carrito {
-  border-collapse: separate;
-  border-spacing: 0 5px;
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 0 5px; }
   .lista__carrito__imagen, .lista__carrito img {
     width: 50px;
     height: 50px;
@@ -204,53 +192,53 @@ table {
   color: black; }
 
 .comprar__carrito {
+  width: 100%;
+  height: 36px;
+  margin-top: 15px;
   font-family: "DIN Next LT Pro Medium", sans-serif;
   font-size: 14px;
   letter-spacing: 1.25px;
   text-transform: uppercase;
-  width: 100%;
-  height: 36px;
   border: 1px solid black;
-  border-radius: 4px;
-  margin-top: 15px; }
+  border-radius: 4px; }
   .comprar__carrito:hover {
     background-color: #cccccc; }
 
 .main {
   width: 100%;
   display: grid;
+  margin-top: 100px;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto auto auto auto auto auto;
   column-gap: 30px;
   column-width: 65px;
-  margin-top: 100px;
   grid-template-areas: "banner banner banner banner banner banner banner banner banner banner banner banner" "marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas" "productos productos productos productos productos productos productos productos productos productos productos productos" "promo promo promo promo promo promo promo promo promo promo promo promo" "servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios"; }
 
 .checkout {
   width: 100%;
   min-height: 100%;
+  margin-top: 100px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   column-gap: 30px;
   column-width: 65px;
-  margin-top: 100px;
   grid-template-areas: "container container container container container container container container container container container container"; }
   .checkout__volver {
+    max-width: 350px;
+    height: 36px;
+    margin-top: 30px;
     font-family: "DIN Next LT Pro Medium", sans-serif;
     font-size: 14px;
     letter-spacing: 1.25px;
     text-transform: uppercase;
-    max-width: 350px;
-    height: 36px;
     border: 1px solid black;
-    border-radius: 4px;
-    margin-top: 30px; }
+    border-radius: 4px; }
     .checkout__volver:hover {
       background-color: #cccccc; }
   .checkout__container {
-    grid-area: container;
     width: 100%;
+    grid-area: container;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     grid-template-rows: auto;
@@ -292,8 +280,8 @@ table {
       max-width: 120px; }
     .checkout__producto__detalle {
       width: 100%;
-      padding-left: 30px;
-      height: 120px; }
+      height: 120px;
+      padding-left: 30px; }
     .checkout__producto__nombre {
       font-family: "DIN Next LT Pro Medium", sans-serif;
       font-size: 24px; }
@@ -327,43 +315,43 @@ table {
     object-fit: cover; }
 
 .titulo {
+  height: 29px;
   font-family: "DIN Next LT Pro Medium", sans-serif;
   font-size: 24px;
   line-height: 24px;
-  height: 29px;
   border-left: 4px solid black;
   padding-top: 5px;
   padding-left: 15px;
   text-transform: uppercase; }
 
 .marcas {
+  width: 100%;
   margin-top: 60px;
   grid-area: marcas;
   grid-column-start: 2;
-  grid-column-end: 12;
-  width: 100%; }
+  grid-column-end: 12; }
   .marcas__logos {
+    width: 100%;
     margin-top: 30px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    align-items: center;
-    width: 100%; }
+    align-items: center; }
     .marcas__logos img {
-      max-height: 120px;
       width: 100%;
+      max-height: 120px;
       object-fit: contain; }
   .marcas__carrousel {
     display: none; }
 
 .alerta {
   width: 70%;
+  top: 100%;
+  left: 50%;
   display: none;
   opacity: 0;
   position: absolute;
   margin: 0;
-  top: 100%;
-  left: 50%;
   margin-left: -35%;
   z-index: 1; }
   .alerta-hidden {
@@ -399,11 +387,13 @@ table {
   margin-bottom: 15px; }
   .producto__imagenProducto {
     width: 100%;
+    max-width: 350px;
     object-fit: cover;
     vertical-align: middle;
-    margin: 0;
-    max-width: 350px; }
+    margin: 0; }
   .producto__detalle {
+    width: 100%;
+    max-width: 350px;
     background-color: #e6e6e6;
     display: flex;
     flex-flow: row nowrap;
@@ -413,8 +403,6 @@ table {
     margin: 0;
     font-family: "DIN Next LT Pro Medium", sans-serif;
     letter-spacing: 1.25px;
-    width: 100%;
-    max-width: 350px;
     margin: auto; }
   .producto__nombre {
     width: 70%;
@@ -428,13 +416,13 @@ table {
     font-size: 18px;
     text-align: right; }
   .producto__btn__agregarCarrito {
+    width: 100%;
+    max-width: 350px;
+    height: 36px;
     font-family: "DIN Next LT Pro Medium", sans-serif;
     font-size: 14px;
     letter-spacing: 1.25px;
     text-transform: uppercase;
-    width: 100%;
-    max-width: 350px;
-    height: 36px;
     border: 1px solid black;
     border-radius: 4px; }
     .producto__btn__agregarCarrito:hover {
@@ -443,11 +431,11 @@ table {
       margin-right: 8px; }
 
 .verMas {
+  height: 36px;
+  min-width: 64px;
   font-family: "DIN Next LT Pro Medium", sans-serif;
   font-size: 14px;
   letter-spacing: 1.25px;
-  height: 36px;
-  min-width: 64px;
   text-transform: uppercase;
   text-decoration: none;
   color: black;
@@ -482,9 +470,9 @@ table {
     height: 450px;
     object-fit: cover; }
   .bannerPromo button {
-    margin-top: 50px;
-    height: 60px;
     width: 250px;
+    height: 60px;
+    margin-top: 50px;
     background-color: white;
     color: black;
     font-family: "DIN Next LT Pro Medium", sans-serif;
@@ -511,8 +499,8 @@ table {
     margin-top: 30px;
     margin-bottom: 30px; }
   .servicios__card {
-    height: 168px;
     width: 100%;
+    height: 168px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -626,26 +614,26 @@ table {
     .nav__logoContainer {
       grid-area: logo; }
     .nav__icoMobile {
+      width: 36px;
       display: block;
       grid-area: ico;
-      grid-column-start: 2;
-      width: 36px; }
+      grid-column-start: 2; }
       .nav__icoMobile img {
         width: 36px;
         height: 36px; }
     .nav__menuDesktop {
       display: none; }
     .nav__menuMobile {
+      width: 100%;
+      top: 100px;
       display: none;
       position: absolute;
-      width: 100%;
       background-color: white;
-      top: 100px;
       border-bottom: 1px solid #cccccc;
       box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.1); }
       .nav__menuMobile ul {
-        position: relative;
         width: 100%;
+        position: relative;
         display: flex;
         flex-flow: column;
         justify-content: flex-start;
@@ -662,29 +650,29 @@ table {
         font-weight: 600;
         color: black; }
   .marcas {
+    width: 100%;
     margin-top: 60px;
     grid-area: marcas;
     grid-column-start: 2;
-    grid-column-end: 12;
-    width: 100%; }
+    grid-column-end: 12; }
     .marcas__logos {
+      width: 100%;
       margin-top: 30px;
       display: none;
       flex-flow: row wrap;
       justify-content: space-between;
-      align-items: center;
-      width: 100%; }
+      align-items: center; }
       .marcas__logos img {
-        max-height: 120px;
         width: 33%;
+        max-height: 120px;
         object-fit: contain; }
     .marcas__carrousel {
-      display: block;
       width: 100%;
-      margin-top: 30px; }
+      margin-top: 30px;
+      display: block; }
       .marcas__carrousel img {
-        object-fit: contain;
-        max-height: 120px; }
+        max-height: 120px;
+        object-fit: contain; }
   .productos {
     margin-top: 30px; }
     .productos__header {
@@ -734,9 +722,9 @@ table {
       width: 100%; }
   .footer__socialMedia {
     width: 33%;
+    height: max-content;
     flex-flow: column;
     justify-content: center;
-    height: max-content;
     align-items: flex-end; }
     .footer__socialMedia .icono {
       margin: 10px 0; } }
@@ -749,10 +737,10 @@ table {
     .nav__cart p {
       display: none; }
   .nav__submenu {
-    right: unset;
-    left: 0;
     width: 100%;
     min-width: 80%;
+    right: unset;
+    left: 0;
     top: 100px; }
   .btn_checkout {
     width: 100%; }

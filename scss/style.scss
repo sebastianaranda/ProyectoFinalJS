@@ -8,27 +8,15 @@
 	font-family: "DIN Next LT Pro Medium";
 	src: url("../resources/fonts/DINNextLTPro-Medium.ttf");
 }
-
 /*---------- RESET DE CSS ----------*/
-
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,  figure, figcaption,
+footer, header, hgroup,  menu, nav, output, ruby, section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -36,12 +24,9 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-
 html {
 	height: 100%;
 }
@@ -55,8 +40,7 @@ ol, ul {
 blockquote, q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before, blockquote:after, q:before, q:after {
 	content: '';
 	content: none;
 }
@@ -64,15 +48,14 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
 /*---------- TERMINA RESET DE CSS ----------*/
 .nav{
 	width: 100%;
 	height: 100px;
-	background-color: $colorWhite;
-	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 	position: fixed;
 	top: 0;
+	background-color: $colorWhite;
+	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 	grid-template-rows: 100px;
@@ -108,9 +91,9 @@ table {
 		}
 		li{
 			height: 16px;
+			margin-left: 100px;
             list-style: none;
 			text-transform: uppercase;
-			margin-left: 100px;
 		}
 		a{
 			font-family: $fontPoppins;
@@ -132,13 +115,13 @@ table {
 		}
 	}
 	&__cart{
+		height: 31px;
+		width: max-content;
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
 		padding: 0px 12px;
-		height: 31px;
-		width: max-content;
 		border-radius: 6px;
 		background-color: $colorBlackDark;
 		color: $colorWhite;
@@ -167,20 +150,20 @@ table {
 		}
 	}
 	&__submenu{
-		display: none;
-    	position: absolute;
+    	min-width: 350px;
     	right: 0;
     	top: 65px;
-    	z-index: 2;
     	background-color: $colorWhite;
 		padding-top: 20px;
 		padding-bottom: 20px;
 		padding-left: 15px;
 		padding-right: 15px;
-    	min-width: 350px;
-		box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
 		border-bottom-left-radius: 4px;
 		border-bottom-right-radius: 4px;
+		display: none;
+    	position: absolute;
+    	z-index: 2;
+		box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
 		&__title{
 			font-family: $fontDINMedium;
 			font-size: 18px;
@@ -192,10 +175,10 @@ table {
 	}
 }
 .lista__carrito{
-	border-collapse: separate;
-	border-spacing: 0 5px;
 	width: 100%;
 	text-align: center;
+	border-collapse: separate;
+	border-spacing: 0 5px;
 	&__imagen, img{
 		width: 50px;
 		height: 50px;
@@ -235,15 +218,15 @@ table {
 	color: $colorBlackDark;
 }
 .comprar__carrito{
+	width: 100%;
+	height: 36px;
+	margin-top: 15px;
 	font-family: $fontDINMedium;
 	font-size: 14px;
 	letter-spacing: 1.25px;
 	text-transform: uppercase;
-	width: 100%;
-	height: 36px;
 	border: 1px solid $colorBlackDark;
 	border-radius: 4px;
-	margin-top: 15px;
 	&:hover{
 		background-color: $colorGrayLight;
 	}
@@ -251,11 +234,11 @@ table {
 .main{
 	width: 100%;
 	display: grid;
+	margin-top: 100px;
 	grid-template-columns: repeat(12, 1fr);
 	grid-template-rows: auto auto auto auto auto auto;
 	column-gap: 30px;
 	column-width: 65px;
-	margin-top: 100px;
 	grid-template-areas: 
 						"banner banner banner banner banner banner banner banner banner banner banner banner"
 						"marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas marcas"
@@ -266,31 +249,31 @@ table {
 .checkout{
 	width: 100%;
 	min-height: 100%;
+	margin-top: 100px;
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 	grid-template-rows: auto;
 	column-gap: 30px;
 	column-width: 65px;
-	margin-top: 100px;
 	grid-template-areas:
 						"container container container container container container container container container container container container";
 	&__volver{
+		max-width: 350px;
+		height: 36px;
+		margin-top: 30px;
 		font-family: $fontDINMedium;
 		font-size: 14px;
 		letter-spacing: 1.25px;
 		text-transform: uppercase;
-		max-width: 350px;
-		height: 36px;
 		border: 1px solid $colorBlackDark;
 		border-radius: 4px;
-		margin-top: 30px;
 		&:hover{
 			background-color: $colorGrayLight;
 		}
 	}
 	&__container{
-		grid-area: container;
 		width: 100%;
+		grid-area: container;
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(18rem,1fr));
 		grid-template-rows: auto;
@@ -341,8 +324,8 @@ table {
 		}
 		&__detalle{
 			width: 100%;
-			padding-left: 30px;
 			height: 120px;
+			padding-left: 30px;
 		}
 		&__nombre{
 			font-family: $fontDINMedium;
@@ -383,31 +366,31 @@ table {
 	}
 }
 .titulo{
+	height: 29px;
 	font-family: $fontDINMedium;
 	font-size: 24px;
 	line-height: 24px;
-	height: 29px;
 	border-left: 4px solid $colorBlackDark;
 	padding-top: 5px;
 	padding-left: 15px;
 	text-transform: uppercase;
 }
 .marcas{
+	width: 100%;
 	margin-top: 60px;
 	grid-area: marcas;
 	grid-column-start: 2;
-	grid-column-end: 12;
-	width: 100%;	
+	grid-column-end: 12;	
 	&__logos{
+		width: 100%;
 		margin-top: 30px;
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: space-between;
 		align-items: center;
-		width: 100%;
 		img{
-			max-height: 120px;
 			width: 100%;
+			max-height: 120px;
 			object-fit: contain;
 		}
 	}
@@ -417,12 +400,12 @@ table {
 }
 .alerta{
 	width: 70%;
+	top: 100%;
+	left: 50%;
 	display: none;
 	opacity: 0;
 	position: absolute;
 	margin: 0;
-	top: 100%;
-	left: 50%;
 	margin-left: -35%;
 	z-index: 1;
 	&-hidden{
@@ -464,12 +447,14 @@ table {
 	margin-bottom: 15px;
 	&__imagenProducto{
 		width: 100%;
+		max-width: 350px;
 		object-fit: cover;
 		vertical-align: middle;
 		margin: 0;
-		max-width: 350px;
 	}
 	&__detalle{
+		width: 100%;
+		max-width: 350px;
 		background-color: $colorBorder;
 		display: flex;
 		flex-flow: row nowrap;
@@ -479,8 +464,6 @@ table {
 		margin: 0;
 		font-family: $fontDINMedium;
 		letter-spacing: 1.25px;
-		width: 100%;
-		max-width: 350px;
 		margin: auto;
 	}
 	&__nombre{
@@ -497,13 +480,13 @@ table {
 		text-align: right;
 	}
 	&__btn__agregarCarrito{
+		width: 100%;
+		max-width: 350px;
+		height: 36px;
 		font-family: $fontDINMedium;
 		font-size: 14px;
 		letter-spacing: 1.25px;
 		text-transform: uppercase;
-		width: 100%;
-		max-width: 350px;
-		height: 36px;
 		border: 1px solid $colorBlackDark;
 		border-radius: 4px;
 		&:hover{
@@ -515,11 +498,11 @@ table {
 	}
 }
 .verMas{
+	height: 36px;
+	min-width: 64px;
 	font-family: $fontDINMedium;
 	font-size: 14px;
 	letter-spacing: 1.25px;
-	height: 36px;
-	min-width: 64px;
 	text-transform: uppercase;
 	text-decoration: none;
 	color: $colorBlackDark;
@@ -558,9 +541,9 @@ table {
 		object-fit: cover;
 	}
 	button{
-		margin-top: 50px;
-		height: 60px;
 		width: 250px;
+		height: 60px;
+		margin-top: 50px;
 		background-color: $colorWhite;
 		color: $colorBlackDark;
 		font-family: $fontDINMedium;
@@ -590,8 +573,8 @@ table {
 		margin-bottom: 30px;
 	}
 	&__card{
-		height: 168px;
 		width: 100%;
+		height: 168px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -679,7 +662,6 @@ table {
 		}
 	}
 }
-
 .btn_checkout{
 	color: $colorWhite;
 	background-color: $colorBlackDark;
@@ -750,10 +732,10 @@ table {
 			grid-area: logo;
 		}
 		&__icoMobile{
+			width: 36px;
 			display: block;
 			grid-area: ico;
 			grid-column-start: 2;
-			width: 36px;
 			img{
 				width: 36px;
 				height: 36px;
@@ -763,16 +745,16 @@ table {
 			display: none;
 		}
 		&__menuMobile{
+			width: 100%;
+			top: 100px;
 			display: none;
 			position: absolute;
-			width: 100%;
 			background-color: $colorWhite;
-			top: 100px;
 			border-bottom: 1px solid $colorGrayLight;
 			box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.1);
 			ul{
-				position: relative;
 				width: 100%;
+				position: relative;
 				display: flex;
 				flex-flow: column;
 				justify-content: flex-start;
@@ -794,31 +776,31 @@ table {
 		}
 	}
 	.marcas{
+		width: 100%;	
 		margin-top: 60px;
 		grid-area: marcas;
 		grid-column-start: 2;
 		grid-column-end: 12;
-		width: 100%;	
 		&__logos{
+			width: 100%;
 			margin-top: 30px;
 			display: none;
 			flex-flow: row wrap;
 			justify-content: space-between;
 			align-items:center;
-			width: 100%;
 			img{
-				max-height: 120px;
 				width: 33%;
+				max-height: 120px;
 				object-fit: contain;
 			}
 		}
 		&__carrousel{
-			display: block;
 			width: 100%;
 			margin-top: 30px;
+			display: block;
 			img{
-				object-fit: contain;
 				max-height: 120px;
+				object-fit: contain;
 			}
 		}
 	}
@@ -899,9 +881,9 @@ table {
 		}
 		&__socialMedia{
 			width: 33%;
+			height: max-content;
 			flex-flow: column;
 			justify-content: center;
-			height: max-content;
 			align-items: flex-end;
 			.icono{
 				margin: 10px 0;
@@ -924,10 +906,10 @@ table {
 			}
 		}
 		&__submenu{
-			right: unset;
-			left: 0;
 			width: 100%;
 			min-width: 80%;
+			right: unset;
+			left: 0;
 			top: 100px;
 		}
 	}

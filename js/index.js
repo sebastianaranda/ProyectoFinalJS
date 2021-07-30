@@ -1,8 +1,6 @@
-import { renderizarProductosHTML } from "./script.js";
-let carrito = [];
-let precioTotal;
+import { renderizarProductosEnHTML } from "./script.js";
 
 $(document).ready(() => {
     const productosDestacados = stockProductos.filter(stockProductos => stockProductos.destacado == true);
-    renderizarProductosHTML(productosDestacados);
+    renderizarProductosEnHTML(productosDestacados);
 });

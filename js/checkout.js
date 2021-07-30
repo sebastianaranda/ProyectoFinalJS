@@ -10,21 +10,17 @@ const precioCompra = document.querySelector("#precio__total");
 /* ---------- Listeners ---------- */
 form.addEventListener("submit", validarForm);
 
-
 /* ---------- JQuery para el Storage ---------- */
 $(document).ready(() => {
     if (JSON.parse(localStorage.getItem("carrito"))) {
         carrito = JSON.parse(localStorage.getItem("carrito"));
         insertarCarritoCheckout();
     }
-    //renderizarProductosHTML(productosDestacados);
 });
-
 
 function insertarCarritoCheckout() {
     precioTotal = 0;
     listaProductos.innerHTML = "";
-
     carrito.forEach(producto => {
         const { nombre, precio, precioUnidad, id, imagen, cantidad } = producto;
         precioTotal = precioTotal + precio;
