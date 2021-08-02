@@ -1,5 +1,6 @@
 import { renderizarProductosEnHTML } from "./main.js"
 
+let menuOpen = false;
 /* Selectores */
 const botonCarrito = $(".nav__cart");
 const subMenuCarrito = $(".nav__submenu");
@@ -36,6 +37,5 @@ function filtrarCategorias(e) {
         //Muestro solo los productos filtrados
         const productosFiltrados = stockProductos.filter(stockProductos => stockProductos.categoria == categoriaSeleccionada);
         renderizarProductosEnHTML(productosFiltrados);
-        console.log(categoriaSeleccionada);
     }
 }

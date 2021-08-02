@@ -7,9 +7,11 @@ const listaProductos = document.querySelector("#lista-productos");
 const form = document.querySelector(".needs-validation");
 const precioCompra = document.querySelector("#precio__total");
 const listaProvincia = document.querySelector("#selectProvincia");
+const listaCiudades = document.querySelector("#selectCiudad");
 
 /* ---------- Listeners ---------- */
 form.addEventListener("submit", validarForm);
+listaProvincia.addEventListener("change", validarCiudad);
 
 /* ---------- JQuery para el Storage ---------- */
 $(document).ready(() => {
@@ -17,8 +19,10 @@ $(document).ready(() => {
         carrito = JSON.parse(localStorage.getItem("carrito"));
         insertarCarritoCheckout();
     }
-
     pedirProvincias();
+    listaProvincia.innerHTML = `<option selected disabled value="">Seleccionar provincia...</option>`;
+    listaCiudades.setAttribute("disabled", "");
+    listaCiudades.innerHTML = `<option selected disabled value="">Seleccionar ciudad...</option>`;
 });
 
 function insertarCarritoCheckout() {
@@ -44,7 +48,6 @@ function insertarCarritoCheckout() {
         listaProductos.appendChild(divCard);
     });
     precioCompra.textContent = `Total: $${precioTotal}`;
-    console.table(carrito);
 }
 
 function validarForm(e) {
@@ -52,6 +55,7 @@ function validarForm(e) {
     if (!form.checkValidity()) {
         e.stopPropagation();
     } else {
+        //Creo la sweetAlert
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
                 confirmButton: 'btn btn-success',
@@ -59,6 +63,7 @@ function validarForm(e) {
             },
             buttonsStyling: false
         });
+        //Muestro la alerta de confirmacion de compra
         swalWithBootstrapButtons.fire({
             title: '¡Gracias por tu compra!',
             text: "En unos minutos recibirás un email con los detalles de tu pedido.",
@@ -67,6 +72,7 @@ function validarForm(e) {
             allowEscapeKey: false,
             allowOutsideClick: false
         }).then((result) => {
+            //Vacio el carrito de compra y redirijo al usuario al index
             if (result.isConfirmed) {
                 carrito = [];
                 localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -77,17 +83,16 @@ function validarForm(e) {
     form.classList.add('was-validated');
 }
 
-function pedirProvincias(){
+function pedirProvincias() {
     $.ajax({
         url: "https://apis.datos.gob.ar/georef/api/provincias",
         method: "GET",
         dataType: "JSON",
-        success: function (result, status, jqXHR){
-            //RENDERIZAR EL RESULTADO
-            console.log(result);
+        success: function (result, status, jqXHR) {
+            //Llamo a la funcion para renderizar las provincias en el select
             renderizarProvincias(result.provincias);
         },
-        error: function (jqXHR, status, error){
+        error: function (jqXHR, status, error) {
             console.log(jqXHR);
             console.log(status);
             console.log(error);
@@ -95,13 +100,53 @@ function pedirProvincias(){
     });
 }
 
-function renderizarProvincias(provincias){
-    provincias.sort((a,b) => a.nombre.localeCompare(b.nombre));
+function renderizarProvincias(provincias) {
+    //Ordeno el array de forma alfabetica
+    provincias.sort((a, b) => a.nombre.localeCompare(b.nombre));
     provincias.forEach(provincia => {
         let { id, nombre } = provincia;
         const optionProvincia = document.createElement("option");
         optionProvincia.setAttribute("data-id", id);
         optionProvincia.innerHTML = nombre;
         listaProvincia.appendChild(optionProvincia);
+    });
+}
+
+function validarCiudad() {
+    const provincias = listaProvincia.options;
+    const provinciaSeleccionada = provincias[listaProvincia.selectedIndex].getAttribute("data-id");
+    pedirCiudades(provinciaSeleccionada);
+}
+
+function pedirCiudades(id) {
+    $.ajax({
+        url: `https://apis.datos.gob.ar/georef/api/localidades?provincia=${id}&max=5000`,
+        method: "GET",
+        dataType: "JSON",
+        success: function (result, status, jqXHR) {
+            //Llamo la funcion para renderizar las ciudades en el select
+            renderizarCiudades(result.localidades);
+        },
+        error: function (jqXHR, status, error) {
+            console.log(jqXHR);
+            console.log(status);
+            console.log(error);
+        }
+    });
+}
+
+function renderizarCiudades(ciudades) {
+    //listaCiudades.innerHTML = "";
+    listaCiudades.innerHTML = `<option selected disabled value="">Seleccionar ciudad...</option>`;
+    //Remuevo el attributo disabled para habilitar el select de ciudades
+    listaCiudades.removeAttribute("disabled");
+    //Ordeno el array de forma alfabetica
+    ciudades.sort((a, b) => a.nombre.localeCompare(b.nombre));
+    ciudades.forEach(ciudad => {
+        let { id, nombre } = ciudad;
+        const optionCiudad = document.createElement("option");
+        optionCiudad.setAttribute("data-id", id);
+        optionCiudad.innerHTML = nombre;
+        listaCiudades.appendChild(optionCiudad);
     });
 }

@@ -214,7 +214,6 @@ export function insertarCarritoEnHTML() {
         precioTotal = precioTotal + precio;
         precioCarrito.textContent = `$${precioTotal}`;
     });
-    console.table(carrito);
     guardarCarritoStorage();
     checkBotonCarrito();
 }
