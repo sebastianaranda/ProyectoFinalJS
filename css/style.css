@@ -305,6 +305,12 @@ table {
 .checkout form input {
   border: 1px solid #988; }
 
+.checkout form select {
+  border: 1px solid #988; }
+
+.checkout form #selectProvincia {
+  border: 1px solid #988; }
+
 .banner {
   width: 100%;
   max-height: 300px;

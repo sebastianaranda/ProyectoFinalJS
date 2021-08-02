@@ -75,9 +75,6 @@ $(document).ready(() => {
         insertarCarritoEnHTML();
     }
     checkBotonCarrito();
-    //Muestro solo los productos destacados
-    const productosDestacados = stockProductos.filter(stockProductos => stockProductos.destacado == true);
-    renderizarProductosEnHTML(productosDestacados);
 });
 
 /* ---------- JQuery para subMenu de Carrito ---------- */

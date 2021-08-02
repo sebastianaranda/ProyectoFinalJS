@@ -352,8 +352,16 @@ table {
 		}
 	}
 }
-.checkout form input{
-	border: 1px solid #988;
+.checkout form{
+	& input{
+		border: 1px solid #988;
+	}
+	& select{
+		border: 1px solid #988;
+	}
+	& #selectProvincia{
+		border: 1px solid #988;
+	}
 }
 .banner{
 	width: 100%;

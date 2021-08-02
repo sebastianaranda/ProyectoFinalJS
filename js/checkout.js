@@ -6,6 +6,7 @@ let precioTotal;
 const listaProductos = document.querySelector("#lista-productos");
 const form = document.querySelector(".needs-validation");
 const precioCompra = document.querySelector("#precio__total");
+const listaProvincia = document.querySelector("#selectProvincia");
 
 /* ---------- Listeners ---------- */
 form.addEventListener("submit", validarForm);
@@ -16,6 +17,8 @@ $(document).ready(() => {
         carrito = JSON.parse(localStorage.getItem("carrito"));
         insertarCarritoCheckout();
     }
+
+    pedirProvincias();
 });
 
 function insertarCarritoCheckout() {
@@ -72,4 +75,33 @@ function validarForm(e) {
         });
     }
     form.classList.add('was-validated');
+}
+
+function pedirProvincias(){
+    $.ajax({
+        url: "https://apis.datos.gob.ar/georef/api/provincias",
+        method: "GET",
+        dataType: "JSON",
+        success: function (result, status, jqXHR){
+            //RENDERIZAR EL RESULTADO
+            console.log(result);
+            renderizarProvincias(result.provincias);
+        },
+        error: function (jqXHR, status, error){
+            console.log(jqXHR);
+            console.log(status);
+            console.log(error);
+        }
+    });
+}
+
+function renderizarProvincias(provincias){
+    provincias.sort((a,b) => a.nombre.localeCompare(b.nombre));
+    provincias.forEach(provincia => {
+        let { id, nombre } = provincia;
+        const optionProvincia = document.createElement("option");
+        optionProvincia.setAttribute("data-id", id);
+        optionProvincia.innerHTML = nombre;
+        listaProvincia.appendChild(optionProvincia);
+    });
 }
