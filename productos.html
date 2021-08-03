@@ -21,11 +21,11 @@
     <header class="nav">
         <div class="nav__logoContainer">
             <a href="./index.html">
-                <img class="nav__logo" src="./resources/logos/logoEH.png" alt="">
+                <img class="nav__logo" src="./resources/logos/logoEH.png" loading="lazy" alt="">
             </a>
         </div>
         <div class="nav__icoMobile">
-            <img id="iconoMenu" src="./resources/icons/menu.svg" alt="">
+            <img id="iconoMenu" src="./resources/icons/menu.svg" loading="lazy" alt="">
         </div>
         <nav class="nav__menuDesktop">
             <ul>
@@ -48,6 +48,7 @@
             </ul>
         </nav>
         <ul class="nav__carrito">
+            <p class="nav__carrito__cant">0</p>
             <li>
                 <div class="nav__cart disabled">
                     <p class="nav__cart__precio">$0</p>
@@ -59,7 +60,8 @@
                         <tbody>
                         </tbody>
                     </table>
-                    <a class="btn comprar__carrito" href="./checkout.html">Comprar Carrito</a>
+                    <a class="btn comprar__carrito" href="./checkout.html">Comprar carrito</a>
+                    <a class="btn eliminar__carrito" href="">Vaciar carrito</a>
                 </div>
             </li>
         </ul>
@@ -67,7 +69,7 @@
 
     <main class="main">
         <section class="banner">
-            <img src="./resources/banners/banner-top.jpg" alt="">
+            <img src="./resources/banners/banner-top.jpg" loading="lazy" alt="">
         </section>
 
         <section class="productos">
@@ -90,15 +92,15 @@
         <section class="servicios">
             <div class="servicios__container">
                 <div class="servicios__card">
-                    <img src="./resources/icons/mdi_shield-alert.svg" alt="">
+                    <img src="./resources/icons/mdi_shield-alert.svg" loading="lazy" alt="">
                     <p>1 año de garantia en todos<br>los productos.</p>
                 </div>
                 <div class="servicios__card">
-                    <img src="./resources/icons/mdi_truck.svg" alt="">
+                    <img src="./resources/icons/mdi_truck.svg" loading="lazy" alt="">
                     <p>Envío gratis en compras<br>mayores a $3.000.</p>
                 </div>
                 <div class="servicios__card">
-                    <img src="./resources/icons/mdi_chat.svg" alt="">
+                    <img src="./resources/icons/mdi_chat.svg" loading="lazy" alt="">
                     <p>Soporte técnico las 24 horas,<br>los 7 días de la semana.</p>
                 </div>
             </div>
@@ -123,16 +125,17 @@
                 </ul>
             </div>
             <div class="footer__logo">
-                <img src="./resources/logos/logoEH.png" alt="">
+                <img src="./resources/logos/logoEH.png" loading="lazy" alt="">
             </div>
             <div class="footer__socialMedia">
-                <a aria-label="Ícono de Facebook." target="_blank" href="">
+                <a aria-label="Ícono de Facebook." target="_blank"
+                    href="https://www.facebook.com/SebastianArandaBarrios/">
                     <i class="fab fa-facebook-f icono" title="Ícono de Facebook."></i>
                 </a>
-                <a aria-label="Ícono de Instagram." target="_blank" href="">
+                <a aria-label="Ícono de Instagram." target="_blank" href="https://www.instagram.com/seba_aranda/">
                     <i class="fab fa-instagram icono" title="Ícono de Instagram."></i>
                 </a>
-                <a aria-label="Ícono de Twitter." target="_blank" href="">
+                <a aria-label="Ícono de Twitter." target="_blank" href="https://twitter.com/seba_aranda">
                     <i class="fab fa-twitter icono" title="Ícono de Twitter."></i>
                 </a>
             </div>

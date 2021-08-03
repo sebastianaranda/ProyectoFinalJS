@@ -1,5 +1,4 @@
-import { renderizarProductosEnHTML } from "./main.js"
-
+import { renderizarProductosEnHTML } from "./main.js";
 let menuOpen = false;
 /* Selectores */
 const botonCarrito = $(".nav__cart");
@@ -22,8 +21,32 @@ botonCarrito.click((e) => {
 
 /* ---------- JQuery para el Storage----------*/
 $(document).ready(() => {
-    //Cargar todos productos
-    renderizarProductosEnHTML(stockProductos);
+    let productosFiltrados;
+    let menuFooter = localStorage.getItem("seleccion");
+    if (menuFooter != "") {
+        switch (menuFooter) {
+            case "prokit":
+                filtroCategorias.value = "prokit";
+                productosFiltrados = stockProductos.filter(stockProductos => stockProductos.categoria == "prokit");
+                break;
+            case "lifestyle":
+                filtroCategorias.value = "lifestyle";
+                productosFiltrados = stockProductos.filter(stockProductos => stockProductos.categoria == "lifestyle");
+                break;
+            case "accesorios":
+                filtroCategorias.value = "accesorios";
+                productosFiltrados = stockProductos.filter(stockProductos => stockProductos.categoria == "accesorios");
+                break;
+            default: break;
+        }
+        //Cargo solo los productos filtrados por la opcion elegida del menu
+        renderizarProductosEnHTML(productosFiltrados);
+        localStorage.setItem("seleccion", "");
+    } else {
+        //Cargar todos productos
+        renderizarProductosEnHTML(stockProductos);
+    }
+
 });
 
 function filtrarCategorias(e) {

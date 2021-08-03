@@ -110,8 +110,25 @@ table {
 	&__carrito{
 		grid-area: cart;
 		grid-column-end: 12;
-		& li{
-			position: relative;
+		width: min-content;
+		position: relative;
+		&__cant{
+			width: 20px;
+			height: 20px;
+			text-align: center;
+			font-family: $fontPoppins;
+			font-weight:600;
+			font-size: 14px;
+			line-height: 14px;
+			background-color:hsl(12, 100%, 50%);
+			color: $colorWhite;
+			position: absolute;
+			border-radius: 100px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			left: calc(100% - 10px);
+			top: calc(0% - 10px);
 		}
 	}
 	&__cart{
@@ -125,6 +142,11 @@ table {
 		border-radius: 6px;
 		background-color: $colorBlackDark;
 		color: $colorWhite;
+		transition:
+				color .15s ease-in-out,
+				background-color .15s ease-in-out,
+				border-color .15s ease-in-out,
+				box-shadow .15s ease-in-out;
 		p{
 			font-family: $fontPoppins;
 			font-size: 16px;
@@ -164,6 +186,7 @@ table {
     	position: absolute;
     	z-index: 2;
 		box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+		text-align: center;
 		&__title{
 			font-family: $fontDINMedium;
 			font-size: 18px;
@@ -171,6 +194,7 @@ table {
 			letter-spacing: 1.25px;
 			text-transform: uppercase;
 			margin-bottom: 15px;
+			text-align: left;
 		}
 	}
 }
@@ -217,18 +241,32 @@ table {
 	font-size: 14px;
 	color: $colorBlackDark;
 }
-.comprar__carrito{
-	width: 100%;
-	height: 36px;
-	margin-top: 15px;
-	font-family: $fontDINMedium;
-	font-size: 14px;
-	letter-spacing: 1.25px;
-	text-transform: uppercase;
-	border: 1px solid $colorBlackDark;
-	border-radius: 4px;
-	&:hover{
-		background-color: $colorGrayLight;
+.btn{
+	&.comprar__carrito{
+		width: 100%;
+		height: 36px;
+		margin-top: 15px;
+		font-family: $fontDINMedium;
+		font-size: 14px;
+		letter-spacing: 1.25px;
+		text-transform: uppercase;
+		border: 1px solid $colorBlackDark;
+		border-radius: 4px;
+		&:hover{
+			background-color: $colorGrayLight;
+		}
+	}
+	&.eliminar__carrito{
+		margin-top: 20px;
+		font-family: $fontDINMedium;
+		font-size: 14px;
+		letter-spacing: 1.25px;
+		text-transform: uppercase;
+		border-radius: 4px;
+		padding: 0;
+		&:hover{
+			color: $colorGrayDark;
+		}
 	}
 }
 .main{
@@ -497,6 +535,11 @@ table {
 		text-transform: uppercase;
 		border: 1px solid $colorBlackDark;
 		border-radius: 4px;
+		transition:
+				color .15s ease-in-out,
+				background-color .15s ease-in-out,
+				border-color .15s ease-in-out,
+				box-shadow .15s ease-in-out;
 		&:hover{
 			background-color: $colorGrayLight;
 		}
@@ -548,7 +591,7 @@ table {
 		height: 450px;
 		object-fit: cover;
 	}
-	button{
+	a{
 		width: 250px;
 		height: 60px;
 		margin-top: 50px;
@@ -560,6 +603,9 @@ table {
 		letter-spacing: 1.25px;
 		text-transform: uppercase;
 		border-radius: 4px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		&:hover{
 			background-color: $colorGrayLight;
 		}
@@ -866,6 +912,16 @@ table {
 }
 
 @media only screen and (max-width: 425px){
+	.nav{
+		&__cart{
+			padding: 0px 6px;
+			p{
+				font-size: 14px;
+				line-height: 14px;
+				margin-right: 6px;
+			}
+		}
+	}
 	.bannerPromo{
 		&__container{
 			width: 100%;
@@ -914,6 +970,7 @@ table {
 			}
 		}
 		&__submenu{
+			position: fixed;
 			width: 100%;
 			min-width: 80%;
 			right: unset;

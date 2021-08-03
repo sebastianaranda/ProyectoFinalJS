@@ -22,11 +22,17 @@ const subMenuCarrito = $(".nav__submenu");
 const navMobile = document.querySelector(".nav__icoMobile");
 const iconoMobile = document.getElementById("iconoMenu");
 const menuMobile = document.querySelector(".nav__menuMobile");
+const menuFooter = document.querySelector(".footer__menu ul");
+const cantCarrito = document.querySelector(".nav__carrito__cant");
+const botonEliminarCarrito = document.querySelector(".eliminar__carrito");
 
 /* ---------- Listeners ---------- */
 listaProductos.addEventListener("click", agregarProducto);
 tablaCarrito.addEventListener("click", borrarProducto);
 navMobile.addEventListener("click", accionarMenuMobile);
+menuFooter.addEventListener("click", checkMenuFooter);
+botonCarrito.click(accionarSubMenuCarrito);
+botonEliminarCarrito.addEventListener("click", vaciarCarrito);
 
 /* ---------- Creo alertas ---------- */
 const alerta = document.createElement("div");
@@ -78,22 +84,28 @@ $(document).ready(() => {
 });
 
 /* ---------- JQuery para subMenu de Carrito ---------- */
-botonCarrito.click((e) => {
-    if (menuOpen) {
-        subMenuCarrito.slideUp();
-        menuOpen = false;
-    } else {
-        subMenuCarrito.slideDown();
-        menuOpen = true;
+function accionarSubMenuCarrito() {
+    if (carrito.length != 0) {
+        if (menuOpen) {
+            subMenuCarrito.slideUp();
+            menuOpen = false;
+        } else {
+            subMenuCarrito.slideDown();
+            menuOpen = true;
+        }
     }
-})
+}
 
 /* ---------- Función que habilita o deshabilita el carrito ---------- */
 function checkBotonCarrito() {
     if (carrito.length == 0) {
         botonCarrito.addClass("disabled");
+        cantCarrito.style.display = "none";
+        subMenuCarrito.slideUp();
+        menuOpen = false;
     } else {
         botonCarrito.removeClass("disabled");
+        cantCarrito.style.display = "flex";
     }
 }
 
@@ -116,7 +128,7 @@ export function renderizarProductosEnHTML(productos) {
         divCard.classList.add("col");
         divCard.innerHTML = `
             <article class="producto">
-                <img class="producto__imagenProducto" src="${imagen}" alt="">
+                <img class="producto__imagenProducto" src="${imagen}" loading="lazy" alt="">
                 <div class="producto__detalle">
                     <p class="producto__nombre">${nombre}</p>
                     <p class="producto__precio">${precio}</p>
@@ -150,6 +162,13 @@ function borrarProducto(e) {
         alertaProductoEliminado("El producto fue eliminado correctamente.");
         insertarCarritoEnHTML();
     }
+}
+
+function vaciarCarrito(e) {
+    e.preventDefault();
+    carrito = [];
+    insertarCarritoEnHTML();
+    alertaProductoEliminado("El carrito fue vaciado correctamente.");
 }
 
 function agregarProducto(e) {
@@ -188,6 +207,7 @@ function obtenerDatosProducto(cardProducto) {
 export function insertarCarritoEnHTML() {
     borrarCarritoHTML();
     precioTotal = 0;
+    let cantTotal = 0;
     if (precioTotal == 0) {
         precioCarrito.textContent = `$${precioTotal}`;
     }
@@ -196,7 +216,7 @@ export function insertarCarritoEnHTML() {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td class="lista__carrito__imagen">
-                <img src="${imagen}">
+                <img src="${imagen}" loading="lazy" alt="">
             </td>
             <td class="lista__carrito__producto">
                 <p>${nombre}</p>
@@ -213,7 +233,9 @@ export function insertarCarritoEnHTML() {
         tablaCarrito.appendChild(row);
         precioTotal = precioTotal + precio;
         precioCarrito.textContent = `$${precioTotal}`;
+        cantTotal = cantTotal + cantidad;
     });
+    cantCarrito.textContent = cantTotal;
     guardarCarritoStorage();
     checkBotonCarrito();
 }
@@ -226,4 +248,23 @@ function borrarCarritoHTML() {
 
 function guardarCarritoStorage() {
     localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function checkMenuFooter(e) {
+    e.preventDefault();
+    switch (e.target.textContent) {
+        case "ProKit":
+            localStorage.setItem("seleccion", "prokit");
+            window.location = "./productos.html";
+            break;
+        case "Lifestyle":
+            localStorage.setItem("seleccion", "lifestyle");
+            window.location = "./productos.html";
+            break;
+        case "Accesorios":
+            localStorage.setItem("seleccion", "accesorios");
+            window.location = "./productos.html";
+            break;
+        default: break;
+    }
 }
