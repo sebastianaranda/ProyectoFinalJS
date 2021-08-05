@@ -269,6 +269,7 @@ table {
 		}
 	}
 	&.checkout__pago{
+		@extend .comprar__carrito;
 		width: 100%;
 		color: $colorWhite;
 		background-color: $colorBlackDark;
@@ -280,6 +281,11 @@ table {
 		&:hover{
 			color: $colorWhite;
 			background-color: $colorBlackLight;
+		}
+		&-cancelar{
+			@extend .eliminar__carrito;
+			width: 100%;
+			margin-top: 0;
 		}
 	}
 }
@@ -364,30 +370,6 @@ table {
 				margin-top: 30px;
 			}
 		}
-		&__pago{
-			display: none;
-			width: 100%;
-			max-width: 400px;
-			height: 600px;
-			background-color: $colorSectionBg;
-			margin: 0 auto;
-			margin-top: 150px;
-			position: relative;
-			opacity: 0;
-			&__tarjeta{
-				width: 300px;
-				height: 150px;
-				background-color: red;
-				position: absolute;
-				left: calc(50% - 150px);
-				top: calc(0% - 75px);
-				border-radius: 10px;
-				&:hover{
-					animation-duration: 1s;
-					animation-name: flip;
-				}
-			}
-		}
 	}
 	&__producto{
 		width: 100%;
@@ -429,15 +411,39 @@ table {
 		}
 	}
 }
+
+.container__pago{
+	grid-area: container;
+	width: 100%;
+	max-width: 400px;
+	background-color: $colorSectionBg;
+	margin: 0 auto;
+	margin-top: 150px;
+	position: relative;
+	opacity: 0;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	display: none;
+	&__tarjeta{
+		width: 300px;
+		height: 150px;
+		background-color: red;
+		position: absolute;
+		left: calc(50% - 150px);
+		top: calc(0% - 75px);
+		border-radius: 10px;
+		&:hover{
+			animation-duration: 1s;
+			animation-name: flip;
+		}
+	}
+}
+
 @keyframes flip{
 	0%{
 		transform: rotateY(0deg)
 	}
-	/* 50%{
-		transform: rotateY(180deg)
-	} */
 	100%{
-		//transform: rotateY(0deg)
 		transform: rotateY(180deg)
 	}
 }
@@ -788,13 +794,9 @@ table {
 		background-color: $colorBlackLight;
 	}
 }
-//!
-//!
-//!
-//!---------------------------------- BORRAR ESTO ----------------------------
-//!
-//!
-//!
+
+//? ---------------------------------- Checkout pago ----------------------------------
+
 .field-container {
     position: relative;
 	& .field-container:first-of-type {
@@ -815,14 +817,6 @@ table {
 	}
 }
 .form-container {
-    /* display: grid;
-    grid-column-gap: 10px;
-    grid-template-columns: auto auto;
-    grid-template-rows: 90px 90px 90px;
-    grid-template-areas:
-						"name name"
-						"number number"
-						"expiration security"; */
     max-width: 400px;
     padding: 20px;
     color: #707070;
@@ -847,9 +841,9 @@ input {
     top: calc(50% - 17px);
     width: 60px;
 }
-
-//! ---------- CREDIT CARD IMAGE STYLING ----------
+//* ---------------------------------- CREDIT CARD IMAGE STYLING ----------------------------------
 .preload * {
+	transition: none !important;
     -webkit-transition: none !important;
     -moz-transition: none !important;
     -ms-transition: none !important;
@@ -862,7 +856,7 @@ input {
     height: 54vw;
     padding: 20px;
 	position: absolute;
-	top: calc(0px - 20%);
+	top: calc(0px - 120px);
 }
 #ccsingle {
     position: absolute;
@@ -891,7 +885,7 @@ input {
     float:right;
 }
 
-//! ---------- CHANGEABLE CARD ELEMENTS ----------
+//* ---------------------------------- CHANGEABLE CARD ELEMENTS ----------------------------------
 .creditcard .lightcolor, .creditcard .darkcolor {
     -webkit-transition: fill .5s;
     transition: fill .5s;
@@ -953,7 +947,7 @@ input {
 	}
 }
 
-//! ---------- FRONT OF CARD ----------
+//* ---------------------------------- FRONT OF CARD ----------------------------------
 #svgname {
     text-transform: uppercase;
 }
@@ -997,7 +991,7 @@ input {
 	}
 }
 
-//! ---------- BACK OF CARD ----------
+//* ---------------------------------- BACK OF CARD ----------------------------------
 #cardback{
 	& .st0 {
 		fill: none;
@@ -1043,7 +1037,7 @@ input {
 	}
 }
 
-//! ---------- FLIP ANIMATION ----------
+//* ---------------------------------- FLIP ANIMATION ----------------------------------
 .container {
     perspective: 1000px;
 }
@@ -1076,13 +1070,6 @@ input {
 	}
 }
 
-//!
-//!
-//!
-//!---------------------------------- BORRAR ESTO ----------------------------
-//!
-//!
-//!
 @media only screen and (max-width: 768px){
 	.nav{
 		&__logoContainer{

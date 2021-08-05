@@ -211,7 +211,7 @@ table {
   font-size: 14px;
   color: black; }
 
-.btn.comprar__carrito {
+.btn.comprar__carrito, .btn.checkout__pago {
   width: 100%;
   height: 36px;
   margin-top: 15px;
@@ -221,10 +221,10 @@ table {
   text-transform: uppercase;
   border: 1px solid black;
   border-radius: 4px; }
-  .btn.comprar__carrito:hover {
+  .btn.comprar__carrito:hover, .btn.checkout__pago:hover {
     background-color: #cccccc; }
 
-.btn.eliminar__carrito {
+.btn.eliminar__carrito, .btn.checkout__pago-cancelar {
   margin-top: 20px;
   font-family: "DIN Next LT Pro Medium", sans-serif;
   font-size: 14px;
@@ -232,7 +232,7 @@ table {
   text-transform: uppercase;
   border-radius: 4px;
   padding: 0; }
-  .btn.eliminar__carrito:hover {
+  .btn.eliminar__carrito:hover, .btn.checkout__pago-cancelar:hover {
     color: gray; }
 
 .btn.checkout__pago {
@@ -243,6 +243,9 @@ table {
   .btn.checkout__pago:hover {
     color: white;
     background-color: #4d4d4d; }
+  .btn.checkout__pago-cancelar {
+    width: 100%;
+    margin-top: 0; }
 
 .main {
   width: 100%;
@@ -310,27 +313,6 @@ table {
         line-height: 20px;
         text-align: right;
         margin-top: 30px; }
-    .checkout__container__pago {
-      display: none;
-      width: 100%;
-      max-width: 400px;
-      height: 600px;
-      background-color: #e6e6e6;
-      margin: 0 auto;
-      margin-top: 150px;
-      position: relative;
-      opacity: 0; }
-      .checkout__container__pago__tarjeta {
-        width: 300px;
-        height: 150px;
-        background-color: red;
-        position: absolute;
-        left: calc(50% - 150px);
-        top: calc(0% - 75px);
-        border-radius: 10px; }
-        .checkout__container__pago__tarjeta:hover {
-          animation-duration: 1s;
-          animation-name: flip; }
   .checkout__producto {
     width: 100%;
     display: flex;
@@ -364,12 +346,33 @@ table {
       line-height: 20px;
       text-align: right; }
 
+.container__pago {
+  grid-area: container;
+  width: 100%;
+  max-width: 400px;
+  background-color: #e6e6e6;
+  margin: 0 auto;
+  margin-top: 150px;
+  position: relative;
+  opacity: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: none; }
+  .container__pago__tarjeta {
+    width: 300px;
+    height: 150px;
+    background-color: red;
+    position: absolute;
+    left: calc(50% - 150px);
+    top: calc(0% - 75px);
+    border-radius: 10px; }
+    .container__pago__tarjeta:hover {
+      animation-duration: 1s;
+      animation-name: flip; }
+
 @keyframes flip {
   0% {
     transform: rotateY(0deg); }
-  /* 50%{
-		transform: rotateY(180deg)
-	} */
   100% {
     transform: rotateY(180deg); } }
 
@@ -684,14 +687,6 @@ table {
     box-sizing: border-box; }
 
 .form-container {
-  /* display: grid;
-    grid-column-gap: 10px;
-    grid-template-columns: auto auto;
-    grid-template-rows: 90px 90px 90px;
-    grid-template-areas:
-						"name name"
-						"number number"
-						"expiration security"; */
   max-width: 400px;
   padding: 20px;
   color: #707070;
@@ -717,6 +712,7 @@ input {
   width: 60px; }
 
 .preload * {
+  transition: none !important;
   -webkit-transition: none !important;
   -moz-transition: none !important;
   -ms-transition: none !important;
@@ -729,7 +725,7 @@ input {
   height: 54vw;
   padding: 20px;
   position: absolute;
-  top: calc(0px - 20%); }
+  top: calc(0px - 120px); }
 
 #ccsingle {
   position: absolute;
