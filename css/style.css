@@ -141,7 +141,7 @@ table {
     .nav__cart i {
       font-size: 16px; }
     .nav__cart:hover {
-      background-color: #4d4d4d;
+      background-color: #404040;
       cursor: pointer; }
     .nav__cart.disabled {
       color: gray;
@@ -173,6 +173,23 @@ table {
       text-transform: uppercase;
       margin-bottom: 15px;
       text-align: left; }
+
+#scroll__custom {
+  display: block;
+  max-height: 300px;
+  overflow-y: scroll; }
+
+#scroll__custom::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5; }
+
+#scroll__custom::-webkit-scrollbar {
+  width: 6px;
+  background-color: #F5F5F5; }
+
+#scroll__custom::-webkit-scrollbar-thumb {
+  background-color: #000000; }
 
 .lista__carrito {
   width: 100%;
@@ -220,9 +237,11 @@ table {
   letter-spacing: 1.25px;
   text-transform: uppercase;
   border: 1px solid black;
-  border-radius: 4px; }
+  border-radius: 4px;
+  background-color: black;
+  color: white; }
   .btn.comprar__carrito:hover, .btn.checkout__pago:hover {
-    background-color: #cccccc; }
+    background-color: #404040; }
 
 .btn.eliminar__carrito, .btn.checkout__pago-cancelar {
   margin-top: 20px;
@@ -242,7 +261,7 @@ table {
   transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out; }
   .btn.checkout__pago:hover {
     color: white;
-    background-color: #4d4d4d; }
+    background-color: #404040; }
   .btn.checkout__pago-cancelar {
     width: 100%;
     margin-top: 0; }
@@ -278,7 +297,7 @@ table {
     border: 1px solid black;
     border-radius: 4px; }
     .checkout__volver:hover {
-      background-color: #cccccc; }
+      background-color: #bfbfbf; }
   .checkout__container {
     width: 100%;
     grid-area: container;
@@ -514,7 +533,7 @@ table {
     border-radius: 4px;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out; }
     .producto__btn__agregarCarrito:hover {
-      background-color: #cccccc; }
+      background-color: #bfbfbf; }
     .producto__btn__agregarCarrito i {
       margin-right: 8px; }
 
@@ -573,7 +592,7 @@ table {
     align-items: center;
     justify-content: center; }
     .bannerPromo a:hover {
-      background-color: #cccccc; }
+      background-color: #bfbfbf; }
 
 .servicios {
   grid-area: servicios;
@@ -670,7 +689,7 @@ table {
   transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out; }
   .btn_checkout:hover {
     color: white;
-    background-color: #4d4d4d; }
+    background-color: #404040; }
 
 .field-container {
   position: relative; }
@@ -969,7 +988,7 @@ input {
       display: none;
       position: absolute;
       background-color: white;
-      border-bottom: 1px solid #cccccc;
+      border-bottom: 1px solid #bfbfbf;
       box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.1); }
       .nav__menuMobile ul {
         width: 100%;

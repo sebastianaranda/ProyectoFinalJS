@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout | EsportHub</title>
+    <meta name="description"
+        content="Esports Hub es una plataforma global que alberga los productos y merchandising de tus equipos favoritos.">
+    <meta name="keywords"
+        content="esports, videogames, merchandising, prokits, camisetas, remeras entrenamiento, pantalones, g2, sentinels, heretics, fnatic, version1, ">
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
@@ -65,7 +69,8 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" inputmode="email"
+                            required>
                         <div class="invalid-feedback">
                             Debe ingresar un email correcto.
                         </div>
@@ -74,7 +79,8 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <input type="text" class="form-control" id="inputDni" placeholder="Nro de documento" required>
+                        <input type="text" class="form-control" id="inputDni" placeholder="Nro de documento"
+                            inputmode="numeric" required>
                         <div class="invalid-feedback">
                             Debe ingresar un DNI válido.
                         </div>
@@ -103,7 +109,8 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <input type="text" class="form-control" id="inputDireccion" placeholder="Direccion" required>
+                        <input type="text" class="form-control" id="inputDireccion" placeholder="Direccion"
+                            inputmode="text" required>
                         <div class="invalid-feedback">
                             Debe ingresar una direccion.
                         </div>
@@ -120,7 +127,7 @@
                 </form>
             </div>
         </section>
-        <!-- FORMULARIO DE PAGO -->
+
         <section class="container__pago">
             <div class="container preload">
                 <div class="creditcard">
@@ -146,7 +153,7 @@
                                     class="st2 st5 st6">NOMBRE APELLIDO</text>
                                 <g>
                                     <text transform="matrix(1 0 0 1 574.4219 433.8095)" id="svgexpire"
-                                        class="st2 st5 st9">MM/AA</text>
+                                        class="st2 st5 st9">MM AA</text>
                                     <text transform="matrix(1 0 0 1 479.3848 417.0097)"
                                         class="st2 st10 st11">HASTA</text>
                                     <text transform="matrix(1 0 0 1 479.3848 435.6762)"
@@ -240,7 +247,7 @@
                     </div>
                     <div class="col-6">
                         <input class="form-control" placeholder="Expiration" id="expirationdate" type="text"
-                            inputmode="numeric">
+                            inputmode="text">
                     </div>
                     <div class="col-6">
                         <input class="form-control" placeholder="Code" id="securitycode" type="text"
@@ -255,7 +262,6 @@
                 </form>
             </div>
         </section>
-        <!-- FORMULARIO DE PAGO -->
     </main>
 
     <footer class="footer">

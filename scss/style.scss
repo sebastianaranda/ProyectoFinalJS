@@ -198,6 +198,24 @@ table {
 		}
 	}
 }
+#scroll__custom{
+	display: block;
+	max-height: 300px;
+	overflow-y: scroll;
+}
+#scroll__custom::-webkit-scrollbar-track{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+#scroll__custom::-webkit-scrollbar{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+#scroll__custom::-webkit-scrollbar-thumb{
+	background-color: #000000;
+}
+
 .lista__carrito{
 	width: 100%;
 	text-align: center;
@@ -252,8 +270,10 @@ table {
 		text-transform: uppercase;
 		border: 1px solid $colorBlackDark;
 		border-radius: 4px;
+		background-color: $colorBlackDark;
+		color: $colorWhite;
 		&:hover{
-			background-color: $colorGrayLight;
+			background-color: $colorBlackLight;
 		}
 	}
 	&.eliminar__carrito{

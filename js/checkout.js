@@ -217,7 +217,7 @@ const ccsingle = document.getElementById('ccsingle');
 let cctype = null;
 
 //? Genero mascara para el input del numero de tarjeta
-var cardnumber_mask = new IMask(cardnumber, {
+let cardnumber_mask = new IMask(cardnumber, {
     mask: [
         {
             mask: '0000 0 00000 00000',
@@ -265,8 +265,8 @@ var cardnumber_mask = new IMask(cardnumber, {
         }
     ],
     dispatch: function (appended, dynamicMasked) {
-        var number = (dynamicMasked.value + appended).replace(/\D/g, '');
-        for (var i = 0; i < dynamicMasked.compiledMasks.length; i++) {
+        let number = (dynamicMasked.value + appended).replace(/\D/g, '');
+        for (let i = 0; i < dynamicMasked.compiledMasks.length; i++) {
             let re = new RegExp(dynamicMasked.compiledMasks[i].regex);
             if (number.match(re) != null) {
                 return dynamicMasked.compiledMasks[i];
@@ -275,9 +275,13 @@ var cardnumber_mask = new IMask(cardnumber, {
     }
 });
 
-//? Genero mascara para el codigo de segurida
-var securitycode_mask = new IMask(securitycode, {
+//? Genero mascara para el codigo de seguridad
+let securitycode_mask = new IMask(securitycode, {
     mask: '000',
+});
+
+let expirationdate_mask = new IMask(expirationdate, {
+    mask: '00 00',
 });
 
 //? SVGICONS
@@ -322,7 +326,7 @@ cardnumber_mask.on("accept", function () {
             break;
         case 'visa':
             ccsingle.innerHTML = visa_single;
-            swapColor('lime');
+            swapColor('lightblue');
             break;
         case 'diners':
             ccsingle.innerHTML = diners_single;
@@ -342,7 +346,7 @@ cardnumber_mask.on("accept", function () {
             break;
         case 'mastercard':
             ccsingle.innerHTML = mastercard_single;
-            swapColor('lightblue');
+            swapColor('red');
 
             break;
         case 'unionpay':
@@ -392,6 +396,14 @@ securitycode_mask.on('accept', function () {
         document.getElementById('svgsecurity').innerHTML = securitycode_mask.value;
     }
 });
+
+expirationdate_mask.on('accept', function () {
+    if (expirationdate_mask.value.length == 0) {
+        document.getElementById('svgexpire').innerHTML = 'MM AA';
+    } else {
+        document.getElementById('svgexpire').innerHTML = securitycode_mask.value;
+    }
+})
 
 //? On Focus Events
 nameCard.addEventListener('focus', function () {
